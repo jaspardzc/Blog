@@ -33,26 +33,29 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/home">My Blog</a>
+            <!-- <a class="navbar-brand navbar-fixed-top" href="#/home">My Blog</a> -->
           </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
+          <div class="collapse navbar-collapse navbar-fixed-top" id="js-navbar-collapse">
+            
+            <a class="navbar-brand" href="#/home"><strong>My Blog</strong></a>
             <ul class="nav navbar-nav">
               <li ng-class="{active: isActive(home)}">
-                <a ng-model="home" href="#/home">Home</a>
+                <a ng-model="home" href="#/home"><strong>Home</strong></a>
               </li>
               <li ng-class="{active: isActive(profile)}">
-                <a ng-model="profile" href="#/profile">Profile</a>
+                <a ng-model="profile" href="#/profile"><strong>Profile</strong></a>
               </li>
               <li ng-class="{active: isActive(contact)}">
-                <a ng-model="contact" href="#/contact">Contact</a>
+                <a ng-model="contact" href="#/contact"><strong>Contact</strong></a>
               </li>
               <li ng-class="{active: isActive(post)}">
-                <a ng-model="post" href="#/post">Post</a>
+                <a ng-model="post" href="#/post"><strong>Post</strong></a>
               </li>
             </ul>
           </div>
+
+          <div class="the-blur"></div>
         </div>
       </div>
     </div>
