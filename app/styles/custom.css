@@ -47,6 +47,21 @@ p {
 }
 
 /*================ DASHBOARD STYLES ====================*/
+.the-blur{
+   position: fixed;
+   top:0;
+   width: 100%;
+   min-height: 50px;
+   margin-bottom: 20px;
+   background: rgba(100,110,110,.4);
+   z-index:10;
+   -webkit-filter: blur(40px);
+   -moz-filter: blur(40px);
+   -o-filter: blur(40px);
+   -ms-filter: blur(40px);
+   filter: blur(40px);
+}
+
 .panel-back {
     background-color:#F8F8F8;
 
@@ -151,32 +166,6 @@ border-top: 0px solid #fff;
 color: #000;
 font-size: 16px;
 line-height: 30px;
-}
-
-/*CHAT PANEL*/
-.chat-panel .panel-body {
-height: 450px;
-overflow-y: scroll;
-}
-.chat-box {
-margin: 0;
-padding: 0;
-list-style: none;
-}
- .chat-box li {
-margin-bottom: 15px;
-padding-bottom: 5px;
-border-bottom: 1px dotted #808080;
-}
- .chat-box li.left .chat-body {
-margin-left: 90px;
-}
- .chat-box li .chat-body p {
-margin: 0;
-color: #8d8888;
-}
-.chat-img>img {
-    margin-left:20px;
 }
 
 /*=============== MENU STYLES =========================*/
