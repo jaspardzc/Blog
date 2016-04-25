@@ -11,15 +11,29 @@ var app = angular.module('myBlog');
 
 app.controller('HomeCtrl', ['$scope', function ($scope) {
 
-  $scope.home = "true";
+	/** Scope Objects for Home Ctrl **/
+	$scope.today = '';
 
-  console.log($scope.home);
+	/** Functions for Home Ctrl **/
+	$scope.init = function() {
+		$scope.setDate();
+	};
 
-  $scope.today = new Date() + '';
+	$scope.setDate = function() {
+		var today = new Date();
 
-  $scope.isActive = function(home) {
-    //return home === $scope.home;
-  };
+		var localDateString = today.toLocaleString();
 
+		var localTimeString = today.toLocaleTimeString();
+
+		$scope.today = localDateString + ' ';
+	};
+
+	$scope.isActive = function(home) {
+		//return home === $scope.home;
+	};
+
+	/**  Entry Point for Home Ctrl **/
+	$scope.init();
 
 }]);
