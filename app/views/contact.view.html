@@ -1,32 +1,36 @@
 <div class="fluid-container col-md-12 col-sm-12 col-xs-12" ng-init="init()">
-  <h3 class="col-md-offset-5 col-sm-offset-4 col-xs-offset-3 text-primary">Leave Me a Message</h3>
+  <h3 class="col-md-offset-5 col-sm-offset-4 col-xs-offset-3 text-success">Leave Me a Message</h3>
   <div class="col-md-6 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-2">
 	  <div class="row col-md-12 col-sm-12 col-xs-12">
 	  	<form name="contactForm">
 			<div class="row form-group col-md-12 col-sm-12 col-xs-12">
-				<label class="col-md-2 col-sm-2 col-xs-4 form-control-label pull-left" for="fromAddress">From&nbsp;Address: </label>
+				<label class="col-md-2 col-sm-2 col-xs-4 form-control-label pull-left text-success" 
+					   for="fromAddress">From&nbsp;Address: 
+				</label>
 				<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="email" 
 					   placeholder="to email address..." id="fromAddress" required="true" ng-model="contact.fromAddress"/>
 			</div>
 			<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-				<label class="col-md-2 col-sm-2 col-xs-4 pull-left">To&nbsp;Address: </label>
+				<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success"
+					   for="toAddress">To&nbsp;Address: 
+				</label>
 				<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="email" value="{{contact.toAddress}}" 
-					   placeholder="recipient email address..." readonly="readonly" ng-model="contact.toAddress"/>
+					   placeholder="recipient email address..." id="toAddress" readonly="readonly" ng-model="contact.toAddress"/>
 			</div>
 			<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-				<label class="col-md-2 col-sm-2 col-xs-4 pull-left">Type: </label>
+				<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success">Type: </label>
 				<select class="col-md-3 col-sm-4 col-xs-5 pull-right">
 					<option ng-repeat="messageType in contact.type">{{messageType}}</option>
 					<option>DEFAULT</option>
 				</select>
 			</div>
 			<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-				<label class="col-md-2 col-sm-2 col-xs-4 pull-left">Subject: </label>
+				<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success">Subject: </label>
 				<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="text" 
 					   placeholder="subject title" required="true" ng-model="contact.subject" maxlength="25" />
 			</div>
 			<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-				<label class="col-md-2 col-sm-2 col-xs-4 pull-left">Content: </label>
+				<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success">Content: </label>
 				<textarea class="form-control col-md-3 col-sm-4 col-xs-5 pull-right"
 				 		  placeholder="message content" required="true" ng-model="contact.content" maxlength="300" rows="10"></textarea>
 			</div>
