@@ -1,220 +1,205 @@
+<style>
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 100%;
+  margin: auto;
+}
+</style>
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div id="wrapper">
-        <div class="" style="margin-top:80px;">
+        <div style="margin-top:80px;">
             <div id="page-inner">
                 <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 col-md-offset-3">
+                        <br/>
+                        <div><img class="img-circle profile-image" src="images/avatar-1.jpg"></div>
+                        <br/><br/>
+                        <div><strong class="text-primary font16">Today : {{today}}</strong></div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 border-default">
+                        <div class="panel panel-info shadow1">
+                            <div class="panel-heading text-center">
+                                <strong>Summary</strong>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Experienced in Highly Complex Web Application Development, proficient in Spring, Maven, Web Services and Front-end Technologies. Addicted to Agile Environment and Open Source Community.</strong></p>
+                                <p><strong>Proficient with Responsive Web Design and Material Design</strong></p>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <em>Code, Eat, Play, Sleep, Repeat</em>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <hr/>                           
+                        <!-- /. ROW  -->
+
+                <div class="row">
+                  <div id="myCarousel" class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 carousel slide border-default" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+
+                      <div class="item active">
+                         <div class="panel panel-info shadow1">
+                            <div class="panel-heading text-center">
+                                <strong class="font20">Project - Blog</strong>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Project Objective and Summary</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Environemnt and Skill Stack</strong></p>
+                                <p><strong>Github Link and Misc</strong></p>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <em></em>
+                            </div>
+                        </div>
+                        <div class="carousel-caption">
+                          <h3>kevinzengdev@gmail</h3>
+                          <p>From April 2016 - Present</p>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                         <div class="panel panel-info shadow1">
+                            <div class="panel-heading text-center">
+                                <strong class="font20">Project - Online Reservation System</strong>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Project Objective and Summary</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Environemnt and Skill Stack</strong></p>
+                                <p><strong>Github Link and Misc</strong></p>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <em></em>
+                            </div>
+                        </div>
+                        <div class="carousel-caption">
+                          <h3>kevinzengdev@gmail</h3>
+                          <p>From March 2015 - April 2016</p>
+                        </div>
+                      </div>
+                    
+                      <div class="item">
+                         <div class="panel panel-info shadow1">
+                            <div class="panel-heading text-center">
+                                <strong class="font20">Project - Android Gourmet Guider</strong>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Project Objective and Summary</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Environemnt and Skill Stack</strong></p>
+                                <p><strong>Github Link and Misc</strong></p>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <em></em>
+                            </div>
+                        </div>
+                        <div class="carousel-caption">
+                          <h3>kevinzengdev@gmail</h3>
+                          <p>From December 2014 - May 2015</p>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                         <div class="panel panel-info shadow1">
+                            <div class="panel-heading text-center">
+                                <strong class="font20">Project - Circuit Analyzer and Verilog Generator</strong>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Project Objective and Summary</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Details</strong></p>
+                                <p><strong>Project Environemnt and Skill Stack</strong></p>
+                                <p><strong>Github Link and Misc</strong></p>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <em></em>
+                            </div>
+                        </div>                       
+                        <div class="carousel-caption">
+                          <h3>kevinzengdev@gmail</h3>
+                          <p>From April 2014 - December 2014</p>
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- End of Row -->
+                <hr/>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="well">
+                            <h4>Favorite Videos</h4>
+                            <p>Videos Details</p>
+                            <p>Put Carousel Here</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="well well-lg">
+                            <h4>Favorite Musics</h4>
+                            <p>Music Details</p>
+                            <p>Put Carousel Here</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="well well-sm">
+                            <h4>Favarite Books</h4>
+                            <p>Books Details</p>
+                            <p>Put Carousel Here</p>
+                        </div>
+                    </div>
+                </div>
+                        <!-- /. ROW  -->
+                <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-success">Today : {{today}}</h2>   
-                        <strong>Code, Eat, Play, Sleep, Repeat.</strong>
-                    </div>
-                </div>
-                 <hr />                           
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            Front End Programming Languages
-                        </div>
-                        <div class="panel-body">
-                            <p>HTML/HTML5, CSS/CSS3, JavaScript, Ecma2015</p>
-                        </div>
-                        <div class="panel-footer">
-                            Just a simple footer
+                        <div class="jumbotron col-md-12 shadow1">
+                            <p class="col-md-12">Developer who is addicted to Agile Environment and Open Source Community</p>
+                            <p class="col-md-6 col-md-offset-3">
+                                <a class="btn btn-primary btn-lg col-md-4" role="button"
+                                   href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">Linkedin
+                                   <span class="glyphicon glyphicon-user"></span></a>
+                                <a class="btn btn-default btn-lg col-md-4" role="button"
+                                   href="https://github.com/jaspardzc" target="_blank">Github
+                                   <span class="glyphicon glyphicon-heart"></span></a>
+                                <a class="btn btn-primary btn-lg col-md-4" role="button" style="background:#CF4438"
+                                   href="" target="_blank">Google+
+                                   <span class="glyphicon glyphicon-cloud"></span></a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Front End Frameworks and Libraries
-                        </div>
-                        <div class="panel-body">
-                            <p>Bootstrap, JQuery, AngularJS, Jasmine, Angular Material, UI-Bootstrap</p>
-                        </div>
-                        <div class="panel-footer">
-                            Just a simple footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            Front End Projects Brief
-                        </div>
-                        <div class="panel-body">
-                            <p>Details Here</p>
-                        </div>
-                        <div class="panel-footer">
-                            Just a simple footer
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            Back End Programming Languages
-                        </div>
-                        <div class="panel-body">
-                            <p>Java, Python, C++</p>
-                        </div>
-                        <div class="panel-footer">
-                            Just a simple footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Back End Frameworks and Libraries
-                        </div>
-                        <div class="panel-body">
-                            <p>Spring, Struts2, Hibernate, JPA, Jersey</p>
-                        </div>
-                        <div class="panel-footer">
-                            Just a simple Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            Front End Projects Brief
-                        </div>
-                        <div class="panel-body">
-                            <p>Details Here</p>
-                        </div>
-                        <div class="panel-footer">
-                            Just a simple Footer
-                        </div>
-                    </div>
-                </div>
-            </div>
                     <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Personal Projects Brief
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-pills">
-                                <li class="active"><a href="#first" data-toggle="tab">Project 1</a>
-                                </li>
-                                <li class=""><a href="#second" data-toggle="tab">Project 2</a>
-                                </li>
-                                <li class=""><a href="#third" data-toggle="tab">Project 3</a>
-                                </li>
-                                <li class=""><a href="#forth" data-toggle="tab">Project 4</a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div class="tab-pane fade active in" id="first">
-                                    <h4>Project - MyBlog</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                                <div class="tab-pane fade" id="second">
-                                    <h4>Project - Android Voice Analyzer</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                                <div class="tab-pane fade" id="third">
-                                    <h4>Project - Online Reservation System</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                                <div class="tab-pane fade" id="forth">
-                                    <h4>Project - Circuit Analyzer and Veriog Converter</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Enterprise Projects Brief
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-pills">
-                                <li class="active"><a href="#firstProject" data-toggle="tab">Project 1</a>
-                                </li>
-                                <li class=""><a href="#secondProject" data-toggle="tab">Project 2</a>
-                                </li>
-                                <li class=""><a href="#thirdProject" data-toggle="tab">Project 3</a>
-                                </li>
-                                <li class=""><a href="#forthProject" data-toggle="tab">Project 4</a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div class="tab-pane fade" id="firstProject">
-                                    <h4>Project - EngageTranZform</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                                <div class="tab-pane fade" id="secondProject">
-                                    <h4>Project - Refferal Management System</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                                <div class="tab-pane fade" id="thirdProject">
-                                    <h4>Project - Risk and Compliance Management System</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                                <div class="tab-pane fade active in" id="forthProject">
-                                    <h4>Project - Medical Instrument Trading CRM System</h4>
-                                    <p>Project Details Here</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-                    <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="well">
-                        <h4>Favorite Videos</h4>
-                        <p>Videos Details</p>
-                        <p>Put Carousel Here</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="well well-lg">
-                        <h4>Favorite Musics</h4>
-                        <p>Music Details</p>
-                        <p>Put Carousel Here</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="well well-sm">
-                        <h4>Favarite Books</h4>
-                        <p>Books Details</p>
-                        <p>Put Carousel Here</p>
-                    </div>
-                </div>
-            </div>
-                    <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="jumbotron col-md-12">
-                        <p class="col-md-12">Developer who is addicted to Agile Environment and Open Source Community</p>
-                        <p class="col-md-12">
-                            <a class="btn btn-primary btn-lg col-md-4" role="button"
-                               href="https://www.linkedin.com/in/kevin-zeng-38584a118">Follow Me on Linkedin</a>
-                            <a class="btn btn-primary btn-lg col-md-4" role="button"
-                               href="https://github.com/jaspardzc">Follow Me on Github</a>
-                            <a class="btn btn-primary btn-lg col-md-4" role="button"
-                               href="">Follow Me on Google+</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-                    <!-- /. ROW  -->
-    </div>
              <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
         </div>
+         <!-- /. PAGE WRAPPER  -->
+    </div>
      <!-- /. WRAPPER  -->
 </div>

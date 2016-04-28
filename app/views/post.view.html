@@ -3,28 +3,32 @@
     <div id="wrapper">
         <!-- Page Content  -->
         <div style="margin-top:80px;">
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-3">
-                     <h2 class="text-success">Timeline</h2>   
-                        <select ng-model="query.timeline" ng-init="query.timeline">
-                        	<option value="Latest Posts">Latest Posts</option>
-                        	<option value="All Posts">All Posts</option>
-                        </select>
-                    </div>
-                    <div class="col-md-9">
-                     <h2 class="text-success">Search All the Posts</h2>   
-                     <input class="col-md-6" type="text" placeholder="search the all the posts here"
-                     		ng-model="query.search"/>
-                     <span class="col-md-1 glyphicon glyphicon-search margin2 font16 mousePointer"
-                     	   ng-click="doPostSearch()"></span>
-                    </div>
-                </div>              
+            <div id="page-inner">             
                 <!-- ROW END  -->
+                <div class="row">
+					<form class="form-inline">
+					  <div class="form-group col-md-3 col-sm-12 col-xs-12">
+					  	<div class="input-group col-md-12">
+	                        <select class="form-control" ng-model="query.timeline" ng-init="query.timeline">
+	                        	<option value="Latest Posts">Latest Posts</option>
+	                        	<option value="All Posts">All Posts</option>
+	                        </select>
+                        </div>
+					  </div>
+					  <div class="form-group col-md-5 col-sm-12 col-xs-12">
+					    <div class="input-group col-md-12">
+                    	  <input class="form-control" type="text" placeholder="search the all the posts here"
+                     			 ng-model="query.search"/>
+					      <div class="input-group-addon glyphicon glyphicon-search font16 mousePointer" 
+					           style="background:#C9D9D6;border:none"></div>
+					    </div>
+					  </div>
+					</form>
+                </div>
                 <hr />
                 <div class="row">
 	                <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="category in posts.category">     
-						<div class="panel panel-back noti-box">
+						<div class="panel panel-back noti-box shadow1">
 			                <span class="icon-box bg-color-red set-icon mousePointer" 
 			                	  ng-click="showCategory(category)"
 			                	  ng-if="category.type === 'Angular'">
@@ -58,10 +62,42 @@
 	            <hr />       
 	            <div class="row">
 	            	<!-- Latest Post Content Block Start -->
-		            <div class="col-md-9 col-sm-12 col-xs-12" 
-		            	 ng-repeat="post in posts.latestPosts"
-		            	 >   
-						<div class="panel panel-back noti-box">
+		            <div class="col-md-3 col-sm-12 col-xs-12" style="position:relative">
+		                <div class="panel shadow1">
+				            <div class="panel-body">
+				                <div class="col-md-12">
+				                	<i class="fa fa-cloud fa-3x"></i>
+				                	<strong class="text-success">Highlighted Posts</strong>
+				                </div>
+				                <hr/>
+				                <div class="col-md-12">
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 1, HyperLink Here</a>
+				                  	</strong>
+				                  </div>
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 2, HyperLink Here</a>
+				                  	</strong>
+				                  </div>
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 3, HyperLink Here</a>
+				                  	</strong>
+				                  </div> 
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 4, HyperLink Here</a>
+				                  	</strong>
+				                  </div>			                  			                  
+				                </div>
+				            </div>
+		      			</div>
+		    		</div>
+		            <div class="col-md-9 col-sm-12 col-xs-12 pull-right" 
+		            	 ng-repeat="post in posts.latestPosts">   
+						<div class="panel panel-back noti-box shadow1">
 			                <span class="icon-box bg-color-blue">
 			                    <i class="fa fa-warning"></i>
 			                </span>
@@ -79,6 +115,39 @@
 			                </div>
 			            </div>
 				    </div>
+<!-- 		            <div class="col-md-3 col-sm-12 col-xs-12" style="position:relative">
+    <div class="panel">
+				            <div class="panel-body">
+				                <div class="col-md-12">
+				                	<i class="fa fa-cloud fa-3x"></i>
+				                	<strong class="text-success">Highlighted Posts</strong>
+				                </div>
+				                <hr/>
+				                <div class="col-md-12">
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 1, HyperLink Here</a>
+				                  	</strong>
+				                  </div>
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 2, HyperLink Here</a>
+				                  	</strong>
+				                  </div>
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 3, HyperLink Here</a>
+				                  	</strong>
+				                  </div> 
+				                  <div class="text-info margin0">
+				                  	<strong>
+				                  		<a style="cursor:pointer">Highlighted Post 4, HyperLink Here</a>
+				                  	</strong>
+				                  </div>			                  			                  
+				                </div>
+				            </div>
+		      			</div>
+		    		</div> -->
 				    <!-- Latest Post Content Block End -->
 	            	<!-- Other Post Content Block Start -->
 					<div class="col-md-12 col-sm-12 col-xs-12"
@@ -109,43 +178,6 @@
 			            </div>
 				    </div>
 				    <!-- Other Post Content Block End -->
-		            <div class="col-md-3 col-sm-12 col-xs-12 col-md-offset-9" style="position:absolute">
-		                <div class="panel ">
-				          <div class="">
-				            <div class="panel-body">
-				              <div class="row">
-				                <div class="col-md-12">
-				                	<i class="fa fa-cloud fa-3x"></i>
-				                	<strong class="text-success">Highlighted Posts</strong>
-				                </div>
-				                <hr/>
-				                <div class="col-md-12">
-				                  <div class="text-info margin0">
-				                  	<strong>
-				                  		<a style="cursor:pointer">Highlighted Post 1, HyperLink Here</a>
-				                  	</strong>
-				                  </div>
-				                  <div class="text-info margin0">
-				                  	<strong>
-				                  		<a style="cursor:pointer">Highlighted Post 2, HyperLink Here</a>
-				                  	</strong>
-				                  </div>
-				                  <div class="text-info margin0">
-				                  	<strong>
-				                  		<a style="cursor:pointer">Highlighted Post 3, HyperLink Here</a>
-				                  	</strong>
-				                  </div> 
-				                  <div class="text-info margin0">
-				                  	<strong>
-				                  		<a style="cursor:pointer">Highlighted Post 4, HyperLink Here</a>
-				                  	</strong>
-				                  </div>			                  			                  
-				                </div>
-				              </div>
-				            </div>
-				          </div>
-		      			</div>
-		    		</div>
 	        	</div>
 				<!-- ROW END  -->        
 	    	</div>
