@@ -37,3 +37,8 @@
 	cursor:pointer;
 }
 
+
+/** Text Color **/
+.text-white {
+	color:#FFFFFF;
+}
