@@ -13,9 +13,21 @@
 							</div>
 							<div class="panel-body">
 								<hr/>
-								<img src="images/angularjs.png" alt="">
+								<div ng-cloak>
+								  <md-content>
+								    <md-tabs md-dynamic-height md-border-bottom>
+								      <md-tab label="{{skill.title}}" ng-repeat="skill in profile.skills">
+								        <md-content class="md-padding">
+								          <h1 class="md-display-2">{{skill.title}}</h1>
+								          <p><strong>{{skill.description}}</strong></p>
+								          <small class="pull-right"><em>Start From: {{skill.startDate}}</em></small>
+								        </md-content>
+								      </md-tab>
+								    </md-tabs>
+								  </md-content>
+								</div>
 								<hr/>
-								<div id="morris-donut-chart"></div>
+								<!-- <div id="morris-donut-chart"></div> -->
 							</div>
 						</div> 					
 					</div>
@@ -161,7 +173,7 @@
     </div>
 </div>
 <script>
-Morris.Donut({
+/*Morris.Donut({
   element: 'morris-donut-chart',
   data: [
     {label: "AngularJS", value: 10},
@@ -175,5 +187,5 @@ Morris.Donut({
     {label: "Java EE", value: 10},
     {label: "OpenFire", value: 10}
   ]
-});
+});*/
 </script>

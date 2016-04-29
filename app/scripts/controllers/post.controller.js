@@ -16,7 +16,16 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 
 	$scope.query = {
 		search: '',
-		timeline: 'Latest Posts'
+		timelines: [
+			{
+				"name": "Latest Posts",
+				"date": new Date() + ''
+			},
+			{
+				"name": "History Posts",
+				"date": ''
+			}
+		]
 	};
 
 	$scope.posts = {
@@ -131,6 +140,15 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 			}
 		]
 	};
+
+	/** Watchers **/
+	$scope.$watch('query.search', function(newVal, oldVal) {
+		console.log(newVal);
+	});
+
+	$scope.$watch('query.timeline', function(newVal, oldVal) {
+		console.log(newVal);
+	});
  
 	/** Functions for Post Controller **/
 	$scope.init = function() {

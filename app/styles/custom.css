@@ -1,7 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     /* background-image: linear-gradient(to bottom, rgba(10,10,10,0.6) 10%,rgba(10,10,10,0.6) 100%), url("../images/background1.jpg"); */
-    background-image: url("../images/background1.jpg");
+    /* background-image: url("../images/background1.jpg"); */
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }

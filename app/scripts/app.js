@@ -13,6 +13,7 @@ var mainApp = angular.module('myBlog', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngMaterial',
     'ngTouch',
     'ui.sortable',
     'LocalStorageModule'
@@ -33,7 +34,7 @@ mainApp.config(['$routeProvider', function ($routeProvider) {
       .when('/profile', {
         templateUrl: 'views/profile.view.html',
         controller: 'ProfileCtrl',
-        controllerAs: 'profile'
+        controllerAs: 'vm'
       })
       .when('/contact', {
         templateUrl: 'views/contact.view.html',

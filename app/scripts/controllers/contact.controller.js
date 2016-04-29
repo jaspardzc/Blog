@@ -30,7 +30,7 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 	};
 
 	$scope.getContact = function() {
-		return $scope.contact;
+		return $scope.contact; 
 	};
 
 	/**** Functions for Contact Controller ****/
@@ -60,6 +60,8 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 		if ($scope.isValid(contact)) {
 			// call the REST Service
 			console.log("submitted");
+
+			window.open('mailto:kevinzengdev@gmail.com');
 
 			// clean the form and send a toast message to the UI
 		} else {
