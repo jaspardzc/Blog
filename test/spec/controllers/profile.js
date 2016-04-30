@@ -3,7 +3,7 @@
 describe('Controller: ProfileCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('myBlog'));
+  beforeEach(module('Blog'));
 
   var ProfileCtrl;
   var scope;

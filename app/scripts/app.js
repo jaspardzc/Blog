@@ -1,13 +1,13 @@
 'use strict';
 /**
  * @ngdoc overview
- * @name myBlog
+ * @name Blog
  * @description
- * # myBlog
+ * # Blog
  *
  * Main module of the application.
  */
-var mainApp = angular.module('myBlog', [
+var mainApp = angular.module('Blog', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

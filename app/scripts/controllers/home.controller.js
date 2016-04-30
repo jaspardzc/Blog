@@ -5,9 +5,9 @@
  * @name myBlog.controller:HomeCtrl
  * @description
  * # HomeCtrl
- * Controller of the myBlog Application
+ * Controller of the Blog Application
  */
-var app = angular.module('myBlog');
+var app = angular.module('Blog');
 
 app.controller('HomeCtrl', ['$scope', function ($scope) {
 

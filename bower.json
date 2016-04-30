@@ -1,5 +1,5 @@
 {
-  "name": "myBlog",
+  "name": "Blog",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.4.0",
@@ -19,7 +19,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "myBlogApp",
+  "moduleName": "BlogApp",
   "overrides": {
     "bootstrap": {
       "main": [

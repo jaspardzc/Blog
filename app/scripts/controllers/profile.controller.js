@@ -5,9 +5,9 @@
  * @name myBlog.controller:ProfileCtrl
  * @description
  * # ProfileCtrl
- * Controller of myBlog Application
+ * Controller of Blog Application
  */
-var app = angular.module('myBlog');
+var app = angular.module('Blog');
 
 app.controller('ProfileCtrl', ['$scope', '$location',  function ($scope, $location) {
 

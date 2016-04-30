@@ -2,10 +2,7 @@
 
 describe('Controller: HomeCtrl', function () {
 
-  // load the controller's module
-  //beforeEach(angular.mock.module('mytodoGruntApp'));
-  //expect(mytodoGruntApp.HomeCtrl).toBeDefined();
-  beforeEach(module('myBlog'));
+  beforeEach(module('Blog'));
 
   var HomeCtrl;
   var scope;

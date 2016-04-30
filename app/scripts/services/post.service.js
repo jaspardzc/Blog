@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name myBlog.service:PostService
+ * @name Blog.service:PostService
  * @description
  * # PostService
- * Service of myBlog Application
+ * Service of Blog Application
  */
-var app = angular.module('myBlog');
+var app = angular.module('Blog');
 
 app.service('PostService', ['$http', '$q', function($http, $q) {
 

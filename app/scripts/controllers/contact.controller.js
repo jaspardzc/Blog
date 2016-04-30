@@ -5,9 +5,9 @@
  * @name myBlog.controller:ContactCtrl
  * @description
  * # ContactCtrl
- * Controller of the myBlog Application
+ * Controller of the Blog Application
  */
-var app = angular.module('myBlog');
+var app = angular.module('Blog');
 
 app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
