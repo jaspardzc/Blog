@@ -9,7 +9,7 @@
  */
 var app = angular.module('Blog');
 
-app.service('PostService', ['$http', '$q', function($http, $q) {
+app.service('PostService', ['$http', function($http) {
 
 	var uri = "data/post.data.json";
 

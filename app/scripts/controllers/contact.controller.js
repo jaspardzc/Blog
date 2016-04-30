@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name myBlog.controller:ContactCtrl
+ * @name Blog.controller:ContactCtrl
  * @description
  * # ContactCtrl
  * Controller of the Blog Application

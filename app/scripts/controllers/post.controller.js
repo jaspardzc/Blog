@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name myBlog.controller:PostCtrl
+ * @name Blog.controller:PostCtrl
  * @description
  * # PostCtrl
  * Controller of Blog Application

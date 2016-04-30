@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name myBlog.controller:HomeCtrl
+ * @name Blog.controller:HomeCtrl
  * @description
  * # HomeCtrl
  * Controller of the Blog Application

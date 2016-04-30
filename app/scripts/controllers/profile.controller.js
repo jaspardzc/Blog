@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name myBlog.controller:ProfileCtrl
+ * @name Blog.controller:ProfileCtrl
  * @description
  * # ProfileCtrl
  * Controller of Blog Application
