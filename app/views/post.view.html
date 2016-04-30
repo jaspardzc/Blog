@@ -10,7 +10,7 @@
 					  <div class="form-group col-md-3 col-sm-12 col-xs-12">
 						  <md-input-container>
 					        <label>Post Timeline</label>
-					        <md-select ng-model="query.timeline">
+					        <md-select ng-model="query.timeline" style="background: #FFFFFF">
 					          <md-option ng-repeat="timeline in query.timelines" value="{{timeline.name}}" ng-selected="$first">
 					            {{timeline.name}}
 					          </md-option>
@@ -20,7 +20,7 @@
 					  <div class="form-group col-md-5 col-sm-12 col-xs-12">
 						  <md-input-container>
 					        <label style="width:200%">Press Enter to Search</label>
-                    	    <input type="text" ng-model="query.search" style="width:200%"/>
+                    	    <input type="text" ng-model="query.search" style="width:200%;background:#FFFFFF"/>
 					      </md-input-container>
 					  </div>
 					</form>
