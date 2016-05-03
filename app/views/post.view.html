@@ -2,7 +2,7 @@
 <!-- Main POST BLOCK -->
     <div id="wrapper">
         <!-- Page Content  -->
-        <div style="margin-top:80px;">
+        <div style="margin-top:180px;">
             <div id="page-inner">             
                 <!-- ROW END  -->
                 <div class="row">
@@ -19,7 +19,7 @@
 					  </div>
 					  <div class="form-group col-md-5 col-sm-12 col-xs-12">
 						  <md-input-container>
-					        <label style="width:200%">Press Enter to Search</label>
+					        <label style="width:200%">Seach by Title, Date, Author</label>
                     	    <input type="text" ng-model="query.search" style="width:200%;background:#FFFFFF"/>
 					      </md-input-container>
 					  </div>
@@ -29,31 +29,27 @@
                 <div class="row">
 	                <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="category in posts.category">     
 						<div class="panel panel-back noti-box shadow1">
-			                <span class="icon-box bg-color-red set-icon mousePointer" 
-			                	  ng-click="showCategory(category)"
+			                <span class="icon-box bg-color-red set-icon mouseDefault" 
 			                	  ng-if="category.type === 'Angular'">
 			                    <i class="fa fa-envelope-o"></i>
 			                </span>
-			                <span class="icon-box bg-color-green set-icon mousePointer" 
-			                	  ng-click="showCategory(category)"
+			                <span class="icon-box bg-color-green set-icon mouseDefault" 
 			                	  ng-if="category.type === 'Spring'">
 			                    <i class="fa fa-envelope-o"></i>
 			                </span>	
-			                <span class="icon-box bg-color-blue set-icon mousePointer" 
-			                	  ng-click="showCategory(category)"
+			                <span class="icon-box bg-color-blue set-icon mouseDefault" 
 			                	  ng-if="category.type === 'MongoDB'">
 			                    <i class="fa fa-envelope-o"></i>
 			                </span>	
-			                <span class="icon-box bg-color-brown set-icon mousePointer" 
-			                	  ng-click="showCategory(category)"
+			                <span class="icon-box bg-color-brown set-icon mouseDefault" 
 			                	  ng-if="category.type === 'OpenFire'">
 			                    <i class="fa fa-envelope-o"></i>
 			                </span>			                		                		                
 			                <div class="text-box" >
-			                    <p class="main-text mousePointer" 
-			                       ng-click="showCategory(category)">{{category.type}}</p>
-			                    <p class="text-muted mousePointer" 
-			                       ng-click="showCategory(category)">Posts({{category.postCount}})</p>
+			                    <p class="main-text mouseDefault">{{category.type}}</p>
+			                    <p class="text-muted mousePointer">
+			                    	<a ng-click="showCategory(category)">Posts({{category.postCount}})</a>
+			                    </p>
 			                </div>
 			             </div>
 					</div>
@@ -61,7 +57,7 @@
             	<!-- ROW END  -->
 	            <hr />       
 	            <div class="row">
-	            	<!-- Latest Post Content Block Start -->
+	            	<!-- Highlighted Post Content Block Start -->
 		            <div class="col-md-3 col-sm-12 col-xs-12" style="position:relative">
 		                <div class="panel shadow1">
 				            <div class="panel-body">
@@ -95,8 +91,10 @@
 				            </div>
 		      			</div>
 		    		</div>
+		    		<!-- Highlighted Post Content Block End -->
+					<!-- Current Active Post Content Block Start -->
 		            <div class="col-md-9 col-sm-12 col-xs-12 pull-right" 
-		            	 ng-repeat="post in posts.latestPosts">   
+		            	 ng-repeat="post in posts.currentView | filter: query.search">   
 						<div class="panel panel-back noti-box shadow1">
 			                <span class="icon-box bg-color-blue">
 			                    <i class="fa fa-warning"></i>
@@ -115,36 +113,7 @@
 			                </div>
 			            </div>
 				    </div>
-				    <!-- Latest Post Content Block End -->
-	            	<!-- Other Post Content Block Start -->
-					<div class="col-md-12 col-sm-12 col-xs-12"
-						 ng-if="query.timeline !== 'Latest Posts'">
-						 <hr/>
-						 <h2 class="text-info col-md-offset-6">History Posts</h2>
-						 <hr/>
-					</div>
-		            <div class="col-md-9 col-sm-12 col-xs-12 pull-right" 
-		                 ng-repeat="post in posts.otherPosts"
-		                 ng-if="query.timeline !== 'Latest Posts'">   
-						<div class="panel panel-back noti-box">
-			                <span class="icon-box bg-color-blue">
-			                    <i class="fa fa-warning"></i>
-			                </span>
-			                <div class="text-box" >
-			                    <p class="main-text">{{post.title}}</p>
-			                    <p class="text-muted">posted by: {{post.author}}</p>
-			                    <p class="text-muted">Post Created Date: {{post.createdDate}}</p>
-			                    <hr />
-			                    <p class="text-muted">
-			                        <span class="text-muted color-bottom-txt">
-			                        	<i class="fa fa-edit"></i>
-										{{post.contentLink}} 
-			                        </span>
-			                    </p>
-			                </div>
-			            </div>
-				    </div>
-				    <!-- Other Post Content Block End -->
+				    <!-- Current Active Post Content Block End -->
 	        	</div>
 				<!-- ROW END  -->        
 	    	</div>
