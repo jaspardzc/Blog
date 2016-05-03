@@ -24,12 +24,16 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 			{
 				"name": "History Posts",
 				"date": ''
+			},
+			{
+				"name": "All Posts",
+				"date": ''
 			}
 		]
 	};
 
 	$scope.posts = {
-		"category": [
+		category: [
 			{
 				"type": "Angular",
 				"postCount": "2"
@@ -47,7 +51,8 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"postCount": "2"
 			}
 		],
-		"latestPosts": [
+		currentView: [],
+		allPosts: [
 			{
 				"category": "Angular",
 				"id": "kz-posts-angular-1",
@@ -57,6 +62,7 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": true,
 				"contentLink": "Angular: Difference between Controller, Factory and Service" 
 			},
 			{
@@ -68,6 +74,7 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": true,
 				"contentLink": "Spring: Bean Factory vs ApplicationContext Factory"
 			},
 			{
@@ -79,30 +86,31 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": true,
 				"contentLink": "MongoDB: Data import and export with mongodump, import, export, etc" 
 			},
 			{
 				"category": "OpenFire",
 				"id": "kz-posts-openfire-1",
 				"title": "OpenFire: Scalable XMPP Server with REST API",
-				"createdDate": "04/24/2016",
+				"createdDate": "04/23/2016",
 				"author": "kevin zeng",
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": true,
 				"contentLink": "OpenFire: Scalable XMPP Server with REST API"
-			}
-		],
-		"otherPosts": [
+			},
 			{
 				"category": "Angular",
 				"id": "kz-posts-angular-2",
 				"title": "Angular: Compare $http, $resource and Restangular",
-				"createdDate": "03/24/2016",
+				"createdDate": "03/22/2016",
 				"author": "kevin zeng",
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": false,
 				"contentLink": "Angular: Compare $http, $resource and Restangular" 
 			},
 			{
@@ -114,6 +122,7 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": false,
 				"contentLink": "Spring: Dependency Injection with Setter and Constructor"
 			},
 			{
@@ -125,6 +134,7 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": false,
 				"contentLink": "MongoDB: Data Denormalization vs Master Collection" 
 			},
 			{
@@ -136,23 +146,28 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 				"hightlighted": false,
 				"readOnly": true,
 				"searchAble": true,
+				"latest": false,
 				"contentLink": "OpenFire: Scalable XMPP Server with Smack API and Spark"
 			}
+
 		]
 	};
 
 	/** Watchers **/
 	$scope.$watch('query.search', function(newVal, oldVal) {
-		console.log(newVal);
+		console.log("Search Criteria: " + newVal);
 	});
 
 	$scope.$watch('query.timeline', function(newVal, oldVal) {
-		console.log(newVal);
+		console.log("Timeline: " + newVal);
+		$scope.switchPostTimeline(newVal);
+
 	});
  
 	/** Functions for Post Controller **/
 	$scope.init = function() {
 		$scope.setDate();
+		$scope.setDefaultPosts();
 		console.log($scope.posts);
 	};
 
@@ -166,6 +181,37 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 		$scope.today = localDateString + ' ';
 	};
 
+	$scope.setDefaultPosts = function() {
+		$scope.posts.currentView = [];
+		angular.forEach($scope.posts.allPosts, function(value, key) {
+			if (value.latest === true && $scope.posts.currentView.indexOf(value) === -1) {
+				$scope.posts.currentView.push(value);
+			}
+		});
+	};
+
+	$scope.setHistoryPosts = function() {
+		$scope.posts.currentView = [];
+		angular.forEach($scope.posts.allPosts, function(value, key) {
+			if (value.latest !== true && $scope.posts.currentView.indexOf(value) === -1) {
+				$scope.posts.currentView.push(value);
+			}
+		});
+	};
+
+	$scope.setAllPosts = function() {
+		$scope.posts.currentView = [];
+		$scope.posts.currentView = $scope.posts.allPosts;
+	};
+
+	$scope.switchPostTimeline = function(timeline) {
+		switch(timeline) {
+			case 'Latest Posts': $scope.setDefaultPosts();break;
+			case 'History Posts': $scope.setHistoryPosts();break;
+			case 'All Posts': $scope.setAllPosts();break;			
+		}
+	};
+
 	$scope.doPostSearch = function() {
 		console.log("Post Search: " + $scope.query.search);
 		console.log("Timeline: " + $scope.query.timeline);
@@ -173,6 +219,12 @@ app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostServi
 
 	$scope.showCategory = function(category) {
 		console.log("Switch to Category: " + category.type);
+		$scope.posts.currentView = [];
+		angular.forEach($scope.posts.allPosts, function(value, key) {
+			if (value.category === category.type && $scope.posts.currentView.indexOf(value) === -1) {
+				$scope.posts.currentView.push(value);
+			}
+		});		
 	};
 
 	/** Entry Point for Post Controller **/
