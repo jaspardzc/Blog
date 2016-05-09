@@ -59,11 +59,11 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 	$scope.submit = function(contact) {
 		if ($scope.isValid(contact)) {
 			// call the REST Service
-			console.log("submitted");
+			console.log("Email Sent");
 
-			window.open('mailto:kevinzengdev@gmail.com');
+			window.open('mailto:' + contact.toAddress + '?subject=' + contact.subject + '&body=' + contact.content);
 
-			// clean the form and send a toast message to the UI
+			
 		} else {
 			console.log("input is not valid!");
 		}

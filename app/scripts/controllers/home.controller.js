@@ -130,7 +130,7 @@ app.controller('HomeCtrl', ['$scope', function ($scope) {
 
 	/* Function for ngClass */
 	$scope.isActive = function(index) {
-		console.log(index);
+		//console.log(index);
 		return index === 0;
 	};
 
