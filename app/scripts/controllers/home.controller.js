@@ -43,71 +43,76 @@ app.controller('HomeCtrl', ['$scope', function ($scope) {
 					demo: 'http://jaspardzc.github.io/blog/#/home'
 				},
 				caption: {
-					email: 'kevinzengdev@gmail',
-					timespan: 'From April 2016 - Present'
+					email: 'kevinzengdev@gmail'
 				}
 			},
 			{
-				title: 'Project - Online Reservation System',
-				objective: '',
+				title: 'Project - Online Reservation Platform',
+				objective: 'Online Reservation Platform is inspired by Airbnb, in terms of shared economy, making usage of redundant and\
+							spare space, fulfilling the pain point of temporary or periodically office place needs',
 				details: [
 					{
-
+						description: 'Online Reservation Platform is based on Microservices Architecture and Modular Design, aiming at\
+									  building an active community that enabling information sharing, social interacting, and more'
 					},
 					{
-
+						description: 'Online Reservation Platform is maintained on Github Repository, deployed on the github.io using Github Pages, checkout at\
+									  the Github Link & Demo Link'
 					}
 				],
-				environment: '',
+				environment: 'Java, Spring, Spring Data, Spring JPA, MongoDB, Jersey, Jackson, Maven, Angular, Bootstrap, HTML, CSS\
+							  XML, etc',
 				links: {
-					github: 'https://github.com/jaspardzc/OnlineReservationSystem',
-					demo: 'http://jaspardzc.github.io/onlinereservation/#/home'
+					github: 'https://github.com/jaspardzc/OnlineReservationPlatform',
+					demo: 'http://jaspardzc.github.io/onlinereservationplatform/#/home'
 				},
 				caption: {
-					email: 'kevinzengdev@gmail',
-					timespan: 'From March 2015 - April 2016'
+					email: 'kevinzengdev@gmail'
 				}
 			},
 			{
 				title: 'Project - Android Gourmet Guider',
-				objective: '',
+				objective: 'Android Gourmet Guider is inspired by Yelp, targeting at recognizing the images, analyzing the audio messages\
+							finally providing a list of suggested dishes and the routes to the potential restaurants',
 				details: [
 					{
-
+						description: 'Android Gourmet Guider is a Native Android Mobile App, heavily used OpenCV, Yelp API 2.0 and \
+									  Google Map API, aiming at providing better Gourmet Experience based on user behavior'
 					},
 					{
-
+						description: 'Android Gourmet Guider is maintained on Github Repository, avaialble in the Google Play Store, checkout at\
+									  the Github Link & Demo Link'
 					}
 				],
-				environment: '',
+				environment: 'Java, Android SDK, Gradle, OpenCV, Yelp API 2.0, Google Map API V2, XML, Android Studio, Bootstrap, JQuery, CSS, HTML, JavaScript',
 				links: {
 					github: 'https://github.com/jaspardzc/AndroidGourmetGuider',
 					demo: 'http://jaspardzc.github.io/androidgourmetguider/#/home'
 				},
 				caption: {
-					email: 'kevinzengdev@gmail',
-					timespan: 'From December 2014 - May 2015'
+					email: 'kevinzengdev@gmail'
 				}
 			},
 			{
 				title: 'Project - Circuit Analyzer and Verilog Generator',
-				objective: '',
+				objective: 'Circuit Analyzer and Verilog Generator is designed to facilitating the digital circuit logic analyze',
 				details: [
 					{
-
+						description: 'Circuit Analyzer and Verilog Generator is aiming at outstreaming smooth and reliable verilog code\
+									  on analyzing the digital circuit logic units, involved Multiple Sheduling Algorithms Implementation'
 					},
 					{
-
+						description: 'Circuit Analyzer and Verilog Generator is maintained on Github Repository, avaialble in the Google Play Store, checkout at\
+									  the Github Link & Demo Link'
 					}
 				],
-				environment: '',
+				environment: 'Java, HTML, CSS, Bootstrap, JQuery, Complex Algorithms, Hibernate, MySQL, Maven, XML',
 				links: {
 					github: 'https://github.com/jaspardzc/CircuitAnalyzer',
 					demo: 'http://jaspardzc.github.io/circuitanalyzer/#/home'
 				},
 				caption: {
-					email: 'kevinzengdev@gmail',
-					timespan: 'From April 2014 - December 2014'
+					email: 'kevinzengdev@gmail'
 				}
 			}
 		]
