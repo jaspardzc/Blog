@@ -19,6 +19,16 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 		type: []
 	};
 
+	$scope.alert = {
+		valid: false,
+		success: {
+			valid: false
+		},
+		failure: {
+			valid: false
+		}
+	};
+
 	/* Setter and Getters */
 	$scope.setContact = function() {
 		$scope.contact.toAddress = 'kevinzengdev@gmail.com';
@@ -48,8 +58,8 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 			input.subject === '' ||
 			input.content === undefined ||
 			input.content === '' ||
-			input.type === undefined ||
-			input.type === '') {
+			input.selectedType === undefined ||
+			input.selectedType === '') {
 			return false;
 		} else {
 			return true;
@@ -61,9 +71,33 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 			// call the REST Service
 			console.log("Email Sent");
 
-			window.open('mailto:' + contact.toAddress + '?subject=' + contact.subject + '&body=' + contact.content);
+			$scope.alert.valid = true;
 
-			
+			var button = $('#submitButton');
+
+			button.addClass('disabled');
+			button.attr("disabled", "disabled");
+
+		   	emailjs.send("gmail","template_JWiX1XYz",
+		   					{
+		   						"to_name": "Kevin", 
+		   						"from_name": contact.fromAddress, 
+		   						"subject": contact.subject,
+		   						"type": contact.selectedType,
+		   						"message_html": contact.content
+		   					}
+		   				)
+					   	.then(function(response) {
+					   		console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+					   		$scope.alert.success.valid = true;
+					   		button.removeClass('disabled');
+					   		button.removeAttr('disabled');
+					   	}, function(error) {
+					   		console.log("FAILED, error=", error);
+					   		$scope.alert.failure.valid = true;
+					   		button.removeClass('disabled');
+					   		button.removeAttr('disabled');
+					   	});
 		} else {
 			console.log("input is not valid!");
 		}
