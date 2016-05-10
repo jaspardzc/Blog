@@ -47,9 +47,9 @@
                             </div>
                             <div class="panel-body">
                                 <p><strong>{{project.objective}}</strong></p>
-                                <p ng-repeat="detail in project.details">{{detail.description}}<br/></p>
-                                <p><strong class="text-primary">Environment: </strong>{{project.environment}}</p>
-                                <p class="pull-right"><em>{{project.caption.email}}</em></p>
+                                <p class="text-info" ng-repeat="detail in project.details"><strong>{{detail.description}}</strong><br/></p>
+                                <p><strong class="text-warning">Environment: </strong><strong class="text-success">{{project.environment}}</strong></p>
+                                <p class="pull-right text-info"><strong><em>Maintained: {{project.caption.email}}</em></strong></p>
                                 <p class="pull-right"><em>{{project.caption.timespan}},&emsp;</em></p>
                             </div>
                             <div class="panel-footer text-center">
