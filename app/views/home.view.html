@@ -1,78 +1,193 @@
+<style>
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button,
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
+  -webkit-transform: none; 
+}
+
+.tooltipdemoBasicUsage .left {
+  top: 70px !important;
+  left: 56px !important; 
+}
+
+.tooltipdemoBasicUsage .right {
+  top: 70px !important;
+  right: 56px !important; 
+} 
+</style>
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div id="wrapper">
         <div style="margin-top:80px;">
             <div id="page-inner">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12 col-md-offset-3">
-                        <br/>
-                        <div><img class="img-circle profile-image" src="images/avatar-1.jpg"></div>
-                        <br/><br/>
-                        <div><strong class="text-primary font16">Today : {{today}}</strong></div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12 border-default">
-                        <div class="panel panel-info shadow1 .md-whiteframe-9dp">
-                            <div class="panel-heading text-center">
-                                <strong>{{overview.summary.title}}</strong>
-                            </div>
-                            <div class="panel-body">
-                                <p><strong ng-repeat="description in overview.summary.description">{{description}}<br/><br/></strong></p>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <em>{{overview.summary.footer}}</em>
-                            </div>
-                        </div>   
-                    </div>
+                  <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                                  md-direction="{{demo.selectedDirection}}">
+                    <md-fab-trigger class="align-with-text">
+                      <md-button aria-label="menu" class="md-fab md-primary">
+                        <md-icon class="glyphicon glyphicon-search"></md-icon>
+                      </md-button>
+                    </md-fab-trigger>
+                    <md-toolbar>
+                      <md-fab-actions class="md-toolbar-tools">
+                        <md-button aria-label="comment" class="md-icon-button">
+                          <md-icon class="glyphicon glyphicon-search"></md-icon>
+                        </md-button>
+                        <md-button aria-label="label" class="md-icon-button">
+                          <md-icon class="glyphicon glyphicon-share"></md-icon>
+                        </md-button>
+                        <md-button aria-label="photo" class="md-icon-button">
+                          <md-icon class="glyphicon glyphicon-heart"></md-icon>
+                        </md-button>
+                      </md-fab-actions>
+                    </md-toolbar>
+                  </md-fab-toolbar>
                 </div>
+                <!-- End of Row -->
                 <hr/>                           
-                        <!-- End of Row -->
                 <div class="row">
-
+                  <div class="text-center"><strong class="text-primary font16">Time Now : {{today}}</strong></div>
                 </div>
 
                 <div class="row">
-                  <div id="myCarousel" class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 carousel slide border-default" data-ride="carousel" data-interval="false">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel" data-slide-to="1"></li>
-                      <li data-target="#myCarousel" data-slide-to="2"></li>
-                      <li data-target="#myCarousel" data-slide-to="3"></li>
-                    </ol>
-
-                    <div class="carousel-inner" role="listbox">
-                      <div class="item" ng-class="{active:isActive($index)}" ng-repeat="project in overview.projects">
-                         <div class="panel panel-info shadow1">
-                            <div class="panel-heading text-center">
-                                <strong class="font20">{{project.title}}</strong>
-                            </div>
-                            <div class="panel-body">
-                                <p><strong>{{project.objective}}</strong></p>
-                                <p class="text-info" ng-repeat="detail in project.details"><strong>{{detail.description}}</strong><br/></p>
-                                <p><strong class="text-warning">Environment: </strong><strong class="text-success">{{project.environment}}</strong></p>
-                                <p class="pull-right text-info"><strong><em>Maintained: {{project.caption.email}}</em></strong></p>
-                                <p class="pull-right"><em>{{project.caption.timespan}},&emsp;</em></p>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <em></em>
-                            </div>
-                        </div>
-                        <div class="carousel-caption">
-                          <h3><a href="{{project.links.github}}" target="_blank"><strong>Github Link</strong></a></h3>
-                          <p><a href="{{project.links.demo}}" target="_blank"><strong>Demo Link</strong></a></p>
-                        </div>
+                  <div class="col-md-5 col-sm-12 col-xs-12">
+                    <md-content class="md-padding" layout-xs="column" layout="row">
+                      <div flex-xs flex-gt-xs="100" layout="column">
+                        <md-card class="md-whiteframe-11dp">
+                          <md-card-header>
+                            <md-card-avatar>
+                              <i class="glyphicon glyphicon-user" style="font-size:20px;"></i>
+                            </md-card-avatar>
+                            <md-card-header-text>
+                              <span class="md-title">Kevin Zeng</span>
+                              <span class="md-subhead">Full Stack Software Developer</span>
+                            </md-card-header-text>
+                          </md-card-header>
+                          <img ng-src="{{imagePath}}" class="md-card-image image-responsive" style="height:50%;" alt="Washed Out">
+                          <md-card-title>
+                            <md-card-title-text>
+                              <span class="md-headline">{{overview.summary.title}}</span>
+                              <span class="md-subhead"><em>{{overview.summary.footer}}</em></span>
+                            </md-card-title-text>
+                          </md-card-title>
+                          <md-card-actions layout="row" layout-align="start center">
+                            <md-button class="btn-success" href="#/contact">Contact Me</md-button>
+                            <md-button class="btn-primary" href="#/profile">My Resume</md-button>
+                            <md-card-icon-actions>
+                              <md-button class="md-icon-button" aria-label="toggle">
+                                <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
+                              </md-button>
+                            </md-card-icon-actions>
+                          </md-card-actions>
+                          <md-card-content>
+                            <p><strong ng-repeat="description in overview.summary.description">{{description}}<br/><br/></strong></p>
+                          </md-card-content>
+                        </md-card>
                       </div>
-                    </div>
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev" 
-                       style="height:95%;margin-left:1%">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next" 
-                       style="height:95%;margin-right:1%">
-                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
+                    </md-content>
+                  </div>
+                  <div class="col-md-7 col-sm-12 col-xs-12">
+                    <md-content class="md-padding" layout-xs="column" layout="row">
+                      <div flex-xs flex-gt-xs="100" layout="column">
+                        <md-card class="md-whiteframe-11dp">
+                          <md-card-header>
+                            <md-card-avatar>
+                              <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
+                            </md-card-avatar>
+                            <md-card-header-text>
+                              <span class="md-title">Highlighted Personal Projects</span>
+                              <span class="md-subhead">kevinzengdev@gmail</span>
+                            </md-card-header-text>
+                          </md-card-header>
+                          <md-card-title>
+                            <md-card-title-text>
+                              <span class="md-headline text-success">Available For：</span>
+                              <span class="md-subhead">Full Stack Software Enginner</span>
+                              <span class="md-subhead">Front End Software Enginner</span>
+                              <span class="md-subhead">Back End JEE Software Enginner</span>
+                              <span class="md-subhead">Native and Hybrid Mobile Developer</span>
+                            </md-card-title-text>
+                            <md-card-title-text>
+                              <span class="md-headline text-success">Website</span>
+                              <span class="md-subhead">
+                                <a href="http://jaspardzc.github.io/blog/#/home" target="_blank">http://jaspardzc.github.io/blog/#/home</a>
+                              </span>
+                            </md-card-title-text>
+                          </md-card-title>
+
+                          <md-card-title>
+                            <md-card-title-text>
+                              <span class="md-headline text-success">Contact Info：</span>
+                              <span class="md-subhead">Mobile: (520)369-0730</span>
+                              <span class="md-subhead">Email: kevinzengdev@gmail</span>
+                            </md-card-title-text>
+                            <md-card-title-text>
+                              <span class="md-headline text-success">Linkedin</span>
+                              <span class="md-subhead">
+                                <a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">https://www.linkedin.com/in/kevin-zeng-38584a118</a>
+                              </span>
+                            </md-card-title-text>
+                          </md-card-title>
+                          <br/>
+                          <md-card-content>
+                            <div id="myCarousel" class="col-md-12 col-sm-12 col-xs-12 carousel slide border-default" data-ride="carousel" data-interval="false">
+                              <!-- Indicators -->
+                              <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                              </ol>
+
+                              <div class="carousel-inner" role="listbox">
+                                <div class="item" ng-class="{active:isActive($index)}" ng-repeat="project in overview.projects">
+                                   <div class="md-whiteframe-4dp">
+                                      <div class="panel-heading text-center">
+                                          <strong class="font20">{{project.title}}</strong>
+                                      </div>
+                                      <div class="panel-body">
+                                          <p><strong>{{project.objective}}</strong></p>
+                                          <p class="text-info" ng-repeat="detail in project.details"><strong>{{detail.description}}</strong><br/></p>
+                                          <p><strong class="text-warning">Environment: </strong><strong class="text-success">{{project.environment}}</strong></p>
+                                          <p class="pull-right text-info"><strong><em>Maintained: {{project.caption.email}}</em></strong></p>
+                                          <p class="pull-right"><em>{{project.caption.timespan}},&emsp;</em></p>
+                                      </div>
+                                  </div>
+                                  <div class="carousel-caption">
+                                    <h3><a href="{{project.links.github}}" target="_blank"><strong>Github Link</strong></a></h3>
+                                    <p><a href="{{project.links.demo}}" target="_blank"><strong>Demo Link</strong></a></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Left and right controls -->
+                              <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev" 
+                                 style="height:96%;margin-left:1%">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next" 
+                                 style="height:96%;margin-right:1%">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+                          </md-card-content>
+                          <md-card-content>
+                            <p><strong>Kevin Zeng is very passionate and has great vision for his work. His focus keeps everything moving smoothly, he makes sure all the deadlines are met, and makes sure that whatever project he is working on meets the highest standards. Wish him a very successful future.</strong></p>
+                            <p class="pull-right"> - Mohammad Hossain Software Test Engineer at TriZetto Corp,Phoenix AZ</p>
+                            <br/><br/><br/><br/>
+                            <blockquote class="blockquote-reverse bg-info">
+                              <p><strong class="font20">Senior Software Engineer</strong>
+                                 <span>Trizetto Corporation</span>
+                                 <small>November 2015 - Present | Phoenix, Arizona Area</small>
+                              </p>
+                            </blockquote>
+                          </md-card-content>
+
+                        </md-card>
+                      </div>
+                    </md-content>
                   </div>
                 </div>
                 <!-- End of Row -->

@@ -13,9 +13,10 @@ app.controller('HomeCtrl', ['$scope', function ($scope) {
 
 	/** Scope Objects for Home Ctrl **/
 	$scope.today = '';
+	$scope.imagePath = 'images/avatar-1.jpg';
 	$scope.overview = {
 		summary: {
-			title: 'Summary',
+			title: 'About Me',
 			description: ['Experienced in Highly Complex Web Application Development, \
 						   proficient in Spring, Maven, Web Services and Front-end Technologies. \
 						   Addicted to Agile Environment and Open Source Community.',
@@ -138,6 +139,17 @@ app.controller('HomeCtrl', ['$scope', function ($scope) {
 		//console.log(index);
 		return index === 0;
 	};
+
+	$scope.demo = {
+		showTooltip : false,
+		tipDirection : ''
+	};
+
+	$scope.$watch('demo.tipDirection',function(val) {
+		if (val && val.length ) {
+		  $scope.demo.showTooltip = true;
+		}
+	});
 
 	/**  Entry Point for Home Ctrl **/
 	$scope.init();
