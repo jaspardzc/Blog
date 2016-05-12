@@ -1,0 +1,44 @@
+/** Margin Specification **/
+.margin0 {
+	margin: 2px;
+}
+
+.margin2 {
+	margin: 4px;
+}
+
+.margin3 {
+	margin: 6px;
+}
+
+.margin4 {
+	margin: 8px;
+}
+
+.margin5 {
+	margin: 10px;
+}
+
+/** Fontsize Specification **/
+.font12 {
+	font-size:12px;
+}
+
+.font16 {
+	font-size:16px;
+}
+
+.font20 {
+	font-size:20px;
+}
+
+/**  Pointer Specification **/
+.mousePointer {
+	cursor:pointer;
+}
+
+
+/** Text Color **/
+.text-white {
+	color:#FFFFFF;
+}
