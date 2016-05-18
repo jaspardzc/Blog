@@ -4,7 +4,7 @@ body {
     /* background-image: url("../images/background1.jpg"); */ 
 }
 
- #wrapper {
+#wrapper {
     width: 100%;
 }
 
@@ -216,30 +216,6 @@ font-weight: 700;
 .nav-third-level li a {
     padding-left: 55px;
 }
-.sidebar-collapse , .sidebar-collapse .nav{
-	background:none;
-}
-.sidebar-collapse .nav {
-	padding:0;
-}
-.sidebar-collapse .nav > li > a {
-	color:#fff;
-	background:#202020;
-	text-shadow:none;
-	
-}
-.sidebar-collapse > .nav > li > a {
-	padding:15px 10px;
-}
-.sidebar-collapse > .nav > li {
-	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
-}
-.sidebar-collapse .nav > li > a:hover,
-.sidebar-collapse .nav > li > a:focus {
-	
-	background:#0A0A0A;
-	outline:0;
-}
 
 .nav-second-level > li > a:before ,
 .nav-third-level > li > a:before {
@@ -272,22 +248,6 @@ font-weight: 700;
 .nav-third-level > li > a:before  {
 	left:40px;
 }
-.navbar-side {
-	border:none;
-	background-color: #202020;
-	
-}
-.navbar-cls-top {
-	background:#4D4D4D;
-	border-bottom:none;
-	
-}
-.navbar-cls-top .navbar-brand:hover {
-
-background: #C90000;
-color:#fff;
-
-}
 
 .navbar-default {
 border:0px solid black;
@@ -310,7 +270,9 @@ background-color: #FFF;
     margin-right:10px;
 }
 
-/*================ UI ELEMENTS STYLES ==================*/
+/*----------------------- DIVIDER LINE --------------------------*/
+
+/*============= HTML5 COMPONENTS START =================*/
 .btn-circle {
 width: 50px;
 height: 50px;
@@ -343,6 +305,7 @@ div.shadow1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
 }
 
+/**** CURSOR ****/
 .cursor-default{
   cursor: default;
 }
@@ -355,6 +318,7 @@ div.shadow1 {
   cursor: move;
 }
 
+/**** BORDER AND TEXT DECORATION ****/
 .decoration-default {
   text-decoration: none;
   outline: none;
@@ -365,12 +329,60 @@ div.shadow1 {
   border-radius: 15px;
 }
 
+/**** INPUT BOX ****/
+input.success {
+  border:1px solid #5CB85C;
+  opacity:1;
+}
+input.danger {
+  border:1px solid #D9534F;
+  opacity:1;
+}
 
+/**** TEXTAREEA BOX ****/
+textarea.danger {
+  border:1px solid #D9534F;
+  opacity:1; 
+}
+
+/**** SPAN ****/
+span.red {
+  color: red;
+  font-size:25px;
+}
+
+/*============= HTML5 COMPONENTS END =================*/
+
+/*----------------------- DIVIDER LINE --------------------------*/
+
+/*============= ANGULAR MATERIAL COMPONENTS START =================*/
+
+/**** Angular Material TOAST ****/
+.md-toast.error {
+    background-color: red;
+}
+
+.md-toast.success {
+    background-color: green;
+}
+
+/*============= ANGULAR MATERIAL COMPONENTS END =================*/
+
+/*----------------------- DIVIDER LINE --------------------------*/
+
+/*============= BOOTSTRAP COMPONENTS START =================*/
+
+/**** BOOTSTRAP CAROUSEL ****/
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   width: 100%;
   margin: auto;
 }
+
+/*============= BOOTSTRAP COMPONENTS END =================*/
+
+/*----------------------- DIVIDER LINE --------------------------*/
+
 /*============= MEDIA QUERIES ====================*/
  
 @media(min-width:768px) {
