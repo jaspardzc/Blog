@@ -9,7 +9,7 @@
  */
 var app = angular.module('Blog');
 
-app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+app.controller('ContactCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
 
 	$scope.contact = {
 		fromAddress: '',
@@ -28,6 +28,8 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 			valid: false
 		}
 	};
+
+	$scope.errorMessage = '';
 
 	/* Setter and Getters */
 	$scope.setContact = function() {
@@ -60,18 +62,37 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 			input.content === '' ||
 			input.selectedType === undefined ||
 			input.selectedType === '') {
+
+			$scope.errorMessage = 'Please fill in the required fields in the contact form!!';
+
+			if (input.selectedType === undefined || input.selectedType === '') {
+				$scope.errorMessage = 'Please choose one TYPE in the contact form!!';
+			}
+
 			return false;
 		} else {
 			return true;
 		}
 	};
 
+	$scope.isInputValid = function(error, input) {
+		if (angular.isDefined(error.required) && input.$dirty) {
+			return error.required === true;
+		} else {
+			return false;
+		}
+	};
+
 	$scope.submit = function(contact) {
 		if ($scope.isValid(contact)) {
-			// call the REST Service
+
 			console.log("Email Sent");
 
 			$scope.alert.valid = true;
+
+			$timeout(function() {
+				$scope.alert.valid = false;
+			}, 2000);
 
 			var button = $('#submitButton');
 
@@ -100,6 +121,16 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
 					   	});
 		} else {
 			console.log("input is not valid!");
+
+			$mdToast.show(
+				$mdToast.simple()
+						.textContent($scope.errorMessage)
+						.action('Close')
+						.capsule(true)
+						.hideDelay(3000)
+						.highlightAction(true)
+						.position('bottom right')
+			);		
 		}
 	};
 
