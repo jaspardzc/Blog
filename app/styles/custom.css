@@ -379,6 +379,26 @@ span.red {
   margin: auto;
 }
 
+.glyphicon-download {
+  font-size:20px;
+}
+
+.glyphicon-th-list {
+  font-size:20px;
+}
+
+.glyphicon-search {
+  font-size:20px;
+}
+
+.glyphicon-share {
+  font-size:20px;
+}
+
+.glyphicon-heart {
+  font-size:20px;
+}
+
 /*============= BOOTSTRAP COMPONENTS END =================*/
 
 /*----------------------- DIVIDER LINE --------------------------*/
@@ -392,7 +412,6 @@ span.red {
     min-height: 1200px;
 	
 }
-
 
 .navbar-side {
     z-index: 1;
