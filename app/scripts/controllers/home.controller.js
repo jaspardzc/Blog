@@ -142,7 +142,8 @@ app.controller('HomeCtrl', ['$scope', function ($scope) {
 
 	$scope.demo = {
 		showTooltip : false,
-		tipDirection : ''
+		tipDirection : '',
+		selectedDirection: 'left'
 	};
 
 	$scope.$watch('demo.tipDirection',function(val) {

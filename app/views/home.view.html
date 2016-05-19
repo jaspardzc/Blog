@@ -21,24 +21,27 @@
     <div id="wrapper">
         <div style="margin-top:80px;">
             <div id="page-inner">
-                <div class="row">
+                <div class="row col-md-12 col-sm-12 col-xs-12" style="position:fixed;z-index:1000">
                   <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
                                   md-direction="{{demo.selectedDirection}}">
                     <md-fab-trigger class="align-with-text">
                       <md-button aria-label="menu" class="md-fab md-primary">
-                        <md-icon class="glyphicon glyphicon-search"></md-icon>
+                        <md-icon class="glyphicon glyphicon-th-list" data-toggle="tooltip" title="Quick Links"></md-icon>
                       </md-button>
                     </md-fab-trigger>
                     <md-toolbar>
                       <md-fab-actions class="md-toolbar-tools">
                         <md-button aria-label="comment" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-search"></md-icon>
+                          <md-icon class="glyphicon glyphicon-search" data-toggle="tooltip" title="search"></md-icon>
                         </md-button>
                         <md-button aria-label="label" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-share"></md-icon>
+                          <md-icon class="glyphicon glyphicon-share" data-toggle="tooltip" title="share"></md-icon>
                         </md-button>
                         <md-button aria-label="photo" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-heart"></md-icon>
+                          <md-icon class="glyphicon glyphicon-heart" data-toggle="tooltip" title="like"></md-icon>
+                        </md-button>
+                        <md-button aria-label="photo" class="md-icon-button">
+                          <md-icon class="glyphicon glyphicon-download" data-toggle="tooltip" title="download"></md-icon>
                         </md-button>
                       </md-fab-actions>
                     </md-toolbar>
