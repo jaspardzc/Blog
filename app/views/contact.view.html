@@ -26,6 +26,10 @@
 									     ng-message="required">
 										<strong>You did not enter the email</strong>
 									</div>
+									<div ng-if="isEmailValid === false && contactForm.fromAddress.$dirty" 
+									     ng-message="required">
+										<strong>Please correct the Email Format</strong>
+									</div>
 								</div>
 								<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
 									<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16"

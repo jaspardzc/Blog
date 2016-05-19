@@ -30,6 +30,7 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', f
 	};
 
 	$scope.errorMessage = '';
+	$scope.isEmailValid = true;
 
 	/* Setter and Getters */
 	$scope.setContact = function() {
@@ -44,6 +45,17 @@ app.controller('ContactCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', f
 	$scope.getContact = function() {
 		return $scope.contact; 
 	};
+
+	$scope.$watch('contact.fromAddress', function(newVal, oldVal) {
+		var regex =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if (newVal !== oldVal) {
+			if (!regex.test(newVal)) {
+				$scope.isEmailValid = false;
+			} else {
+				$scope.isEmailValid = true;
+			}
+ 		}
+	});
 
 	/**** Functions for Contact Controller ****/
 	$scope.init = function() {
