@@ -22,9 +22,9 @@ var mainApp = angular.module('Blog', [
 mainApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/home.view.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'home'
+        templateUrl: 'views/login.view.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .when('/home', {
         templateUrl: 'views/home.view.html',
@@ -34,7 +34,7 @@ mainApp.config(['$routeProvider', function ($routeProvider) {
       .when('/profile', {
         templateUrl: 'views/profile.view.html',
         controller: 'ProfileCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'profile'
       })
       .when('/contact', {
         templateUrl: 'views/contact.view.html',
@@ -45,6 +45,16 @@ mainApp.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/post.view.html',
         controller: 'PostCtrl',
         controllerAs: 'post'
+      })
+      .when('/signup', {
+        templateUrl: 'views/signup.view.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.view.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .otherwise({
         redirectTo: '/'
