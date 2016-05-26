@@ -27,13 +27,13 @@ app.controller('ProfileCtrl', ['$scope', '$location',  function ($scope, $locati
 				"degree": "Master of Science (M.S.), ECE",
 				"name": "University of Arizona",
 				"timespan": "2013 - 2015",
-				"profolioUrl": 'https://www.linkedin.com/in/kevin-zeng-38584a118'				
+				"location": 'Tucson, Arizona Area'				
 			},
 			{
 				"degree": "Bachelor of Engineering (B.E.), ECE",
 				"name": "Hubei University",
 				"timespan": "2009 - 2013",
-				"profolioUrl": 'https://www.linkedin.com/in/kevin-zeng-38584a118'				
+				"location": 'Wuhan, Hubei Province, CN'				
 			}
 		],
 		experience: {
@@ -65,18 +65,6 @@ app.controller('ProfileCtrl', ['$scope', '$location',  function ($scope, $locati
 			],
 			volunteer: []
 		},
-		projects: {
-			recent: [
-				{
-
-				}
-			],
-			previous: [
-				{
-
-				}
-			]
-		},
 		skills: [
 			{
 				"title": "Front End",
@@ -100,5 +88,20 @@ app.controller('ProfileCtrl', ['$scope', '$location',  function ($scope, $locati
 			}
 		]
 	};
+
+	$scope.skills = '';
+	$scope.experiences = '';
+	$scope.basic = '';
+
+	$scope.init = function() {
+		console.log($scope.profile);
+		$scope.skills = $scope.profile.skills;
+		$scope.experiences = $scope.profile.experience.professional;
+		$scope.educations = $scope.profile.education;
+		$scope.basic = $scope.profile.basic;
+	};
+
+	/* Entry Point for Profile Controller */
+	$scope.init();
 
 }]);
