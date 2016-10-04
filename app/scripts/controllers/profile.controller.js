@@ -167,7 +167,7 @@ app.controller('ProfileCtrl', ['$scope', '$location',  function ($scope, $locati
 		var array = [];
 
 		angular.forEach(productSelected.versions, function(value, key) {
-			var section = {label: value.version, value: value.count};
+			var section = {label: "version: " + value.version, value: value.count};
 			array.push(section);
 		});
 
@@ -193,7 +193,11 @@ app.controller('ProfileCtrl', ['$scope', '$location',  function ($scope, $locati
 
 		$scope.donut = new Morris.Donut({
 					  element: 'myDonut',
-					  data: array
+					  data: array,
+					  colors: ['#7BB661', '#7BB661', '#72A0C1', '#72A0C1'],
+  					  formatter: function (y) { 
+  					  	return "counts: " + y;
+  					  }
 					});
 		console.log($scope.donut);
 	};
