@@ -1,0 +1,25 @@
+{
+	"id": "angular",
+	"name": "angular_post_metadata",
+	"maintainer": "kevin.zeng",
+	"content": [
+		{
+			"name": "chapter 1: angular intro",
+			"agenda": [
+				"- Concept of MVC Framework",
+				"- Angular Basic Components",
+				"- Angular Components",
+				"- Angular AJAX Example"
+			]
+		},
+		{
+			"name": "chaper 2: Angular Best Practices",
+			"agenda": [
+				"- microservice architecture",
+				"- reusable template and directives",
+				"- restangular and ui-router",
+				"- material design"
+			]
+		}
+	]
+}

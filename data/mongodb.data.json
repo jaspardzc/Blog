@@ -1,1 +1,25 @@
-asdas
+{
+	"id": "mongodb",
+	"name": "mongodb_post_metadata",
+	"maintainer": "kevin.zeng",
+	"content": [
+		{
+			"name": "chapter 1: mongodb intro",
+			"agenda": [
+				"- Concept of NoSQL DB",
+				"- MongoDB Basics",
+				"- Mongo Shell",
+				"- MongoDB Admin Tool"
+			]
+		},
+		{
+			"name": "chaper 2: mognodb crud",
+			"agenda": [
+				"- mongodb java driver",
+				"- spring jpa",
+				"- spring mongo template",
+				"- spring mongo repository"
+			]
+		}
+	]
+}

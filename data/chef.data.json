@@ -1,0 +1,25 @@
+{
+	"id": "chef",
+	"name": "chef_post_metadata",
+	"maintainer": "kevin.zeng",
+	"content": [
+		{
+			"name": "chapter 1: chef intro",
+			"agenda": [
+				"- Concept of ChefDK, Chef Client, Chef Server, etc",
+				"- Chef Resources",
+				"- Knife Basics",
+				"- Nodes and Environments"
+			]
+		},
+		{
+			"name": "chaper 2: chef cookbooks",
+			"agenda": [
+				"- cookbook and recipe",
+				"- chef with tomcat and docker",
+				"- data bags and roles",
+				"- manage a node"
+			]
+		}
+	]
+}
