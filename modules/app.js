@@ -22,39 +22,34 @@ var mainApp = angular.module('Blog', [
 mainApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/login.view.html',
+        templateUrl: 'modules/auth/views/login.view.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+      .when('/signup', {
+        templateUrl: 'modules/auth/views/signup.view.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup'
+      })
       .when('/home', {
-        templateUrl: 'views/home.view.html',
+        templateUrl: 'modules/home/views/home.view.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
       })
       .when('/profile', {
-        templateUrl: 'views/profile.view.html',
+        templateUrl: 'modules/profile/views/profile.view.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
       .when('/contact', {
-        templateUrl: 'views/contact.view.html',
+        templateUrl: 'modules/social/views/contact.view.html',
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
       .when('/post', {
-        templateUrl: 'views/post.view.html',
+        templateUrl: 'modules/post/views/post.view.html',
         controller: 'PostCtrl',
         controllerAs: 'post'
-      })
-      .when('/signup', {
-        templateUrl: 'views/signup.view.html',
-        controller: 'SignupCtrl',
-        controllerAs: 'signup'
-      })
-      .when('/login', {
-        templateUrl: 'views/login.view.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
       })
       .otherwise({
         redirectTo: '/'
