@@ -13,10 +13,10 @@ var mainApp = angular.module('Blog', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngAria',
     'ngMaterial',
-    'ngTouch',
+    'ngMessages',
     'ui.router',
-    'ui.sortable',
     'LocalStorageModule'
 ]);
 
