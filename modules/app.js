@@ -15,43 +15,67 @@ var mainApp = angular.module('Blog', [
     'ngSanitize',
     'ngMaterial',
     'ngTouch',
+    'ui.router',
     'ui.sortable',
     'LocalStorageModule'
 ]);
 
-mainApp.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+
+      var loginState = {
+        name: 'login',
+        url: '/login',
         templateUrl: 'modules/auth/views/login.view.html',
         controller: 'LoginCtrl',
-        controllerAs: 'login'
-      })
-      .when('/signup', {
+        controllerAs: 'vm'
+      }; 
+
+      var signupState = {
+        name: 'signup',
+        url: '/signup',
         templateUrl: 'modules/auth/views/signup.view.html',
         controller: 'SignupCtrl',
-        controllerAs: 'signup'
-      })
-      .when('/home', {
+        controllerAs: 'vm'
+      }; 
+
+      var homeState = {
+        name: 'home',
+        url: '/home',
         templateUrl: 'modules/home/views/home.view.html',
         controller: 'HomeCtrl',
-        controllerAs: 'home'
-      })
-      .when('/profile', {
+        controllerAs: 'vm'
+      };
+
+      var profileState = {
+        name: 'profile',
+        url: '/profile',
         templateUrl: 'modules/profile/views/profile.view.html',
         controller: 'ProfileCtrl',
-        controllerAs: 'profile'
-      })
-      .when('/contact', {
+        controllerAs: 'vm'
+      };
+
+      var concatState = {
+        name: 'contact',
+        url: '/contact',
         templateUrl: 'modules/social/views/contact.view.html',
         controller: 'ContactCtrl',
-        controllerAs: 'contact'
-      })
-      .when('/post', {
+        controllerAs: 'vm'
+      };
+
+      var postState = {
+        name: 'post',
+        url: '/post',
         templateUrl: 'modules/post/views/post.view.html',
         controller: 'PostCtrl',
-        controllerAs: 'post'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+        controllerAs: 'vm'
+      };
+
+      $urlRouterProvider.otherwise('/login');
+
+      $stateProvider.state(loginState);
+      $stateProvider.state(signupState);
+      $stateProvider.state(homeState);
+      $stateProvider.state(profileState);
+      $stateProvider.state(concatState);
+      $stateProvider.state(postState);
 }]);

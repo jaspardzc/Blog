@@ -416,6 +416,12 @@ span.red {
 border-radius: 0px; 
 }
 
+
+
+/************* Angular UI CSS STYLE ***********/
+.header-menu-active { 
+  color: lightblue; 
+  font-weight: bolder; 
 }
 
 
