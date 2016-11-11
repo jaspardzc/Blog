@@ -2,19 +2,19 @@
 ## Blog without Yeoman Scaffolding
 
 ## Build & development
-- No gulp/grunt, bower, npm(node_modules) used in this version
+- No Gulpfile.js, package.json and node_modules are uploaded, they are only for development stage for this project
+- For more detail on a more standard build flow of using Gulp and Npm, take a look at the `gulp-seed` at https://github.com/jaspardzc/angular_2_repo
 
 ## Preview
--- http://jaspardzc.github.io/Blog/#/home
+    http://jaspardzc.github.io/Blog/#/home
 
 ## Run the APP 
-- Deploy the entire app folder inside Apache Tomcat
+    Deploy the entire folder inside Apache Tomcat
 
 ## Undergoing Development
-- Please refer to the Issues attached to the repository
+    Please refer to the Issues attached to the repository
 
 Maintained By kevinzengdev@gmail.com
-==========
-
+----------
 Version 1.0
 ----------
