@@ -7,7 +7,20 @@
  *
  * Main module of the application.
  */
-var mainApp = angular.module('Blog', [
+
+// local varialbles initialization
+var env = {};
+var config = {};
+
+// import environment variables if present (from /config/env.config.js)
+// import app config variables if present (from /config/app.config.js)
+if (window) {
+  Object.assign(env, window.__env);
+  Object.assign(config, window.__config);
+} 
+
+// define AngularJS application
+var app = angular.module('Blog', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -20,12 +33,28 @@ var mainApp = angular.module('Blog', [
     'LocalStorageModule'
 ]);
 
-mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+// register environment in AngularJS as constants
+app.constant('__env', env)
+    .constant('__config', config);
+
+//
+function disableLogging($logProvider, __env) {
+  $logProvider.debugEnabled(__env.enableDebug);
+}
+
+// inject dependencies
+disableLogging.$inject = ['$logProvider', '__env'];
+
+// config logging capability
+app.config(disableLogging);
+
+// bootstrap angular routing configuration based on state routing
+app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
 
       var loginState = {
         name: 'login',
         url: '/login',
-        templateUrl: 'modules/auth/views/login.view.html',
+        templateUrl: 'app/src/modules/auth/views/login.view.html',
         controller: 'LoginCtrl',
         controllerAs: 'vm'
       }; 
@@ -33,7 +62,7 @@ mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProv
       var signupState = {
         name: 'signup',
         url: '/signup',
-        templateUrl: 'modules/auth/views/signup.view.html',
+        templateUrl: 'app/src/modules/auth/views/signup.view.html',
         controller: 'SignupCtrl',
         controllerAs: 'vm'
       }; 
@@ -41,7 +70,7 @@ mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProv
       var homeState = {
         name: 'home',
         url: '/home',
-        templateUrl: 'modules/home/views/home.view.html',
+        templateUrl: 'app/src/modules/home/views/home.view.html',
         controller: 'HomeCtrl',
         controllerAs: 'vm'
       };
@@ -49,7 +78,7 @@ mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProv
       var profileState = {
         name: 'profile',
         url: '/profile',
-        templateUrl: 'modules/profile/views/profile.view.html',
+        templateUrl: 'app/src/modules/profile/views/profile.view.html',
         controller: 'ProfileCtrl',
         controllerAs: 'vm'
       };
@@ -57,7 +86,7 @@ mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProv
       var concatState = {
         name: 'contact',
         url: '/contact',
-        templateUrl: 'modules/social/views/contact.view.html',
+        templateUrl: 'app/src/modules/social/views/contact.view.html',
         controller: 'ContactCtrl',
         controllerAs: 'vm'
       };
@@ -65,7 +94,7 @@ mainApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProv
       var postState = {
         name: 'post',
         url: '/post',
-        templateUrl: 'modules/post/views/post.view.html',
+        templateUrl: 'app/src/modules/post/views/post.view.html',
         controller: 'PostCtrl',
         controllerAs: 'vm'
       };

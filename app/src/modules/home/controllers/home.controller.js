@@ -9,11 +9,13 @@
  */
 var app = angular.module('Blog');
 
-app.controller('HomeCtrl', ['$scope', function ($scope) {
+app.controller('HomeCtrl', ['$scope', '__config', function ($scope, __config) {
+
+	$scope.app_name = __config.app_name;
 
 	/** Scope Objects for Home Ctrl **/
 	$scope.today = '';
-	$scope.imagePath = 'images/avatar-1.jpg';
+	$scope.imagePath = 'app/src/images/avatar-1.jpg';
 	$scope.overview = {
 		summary: {
 			title: 'About Me',
