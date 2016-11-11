@@ -15,5 +15,5 @@
 	window.__env.baseUrl = '';
 
 	// settings this to false will disable the console output
-	window.__env.enableDebug = true;
+	window.__env.enableDebug = false;
 }(this));

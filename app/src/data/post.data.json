@@ -1,9 +1,3 @@
-/**
- *  Created: 04/24/2016
- *  Author: kevin zeng
- *  Email: kevinzengdev@gmail
- *  Description: JSON Meta Data for Blog posts
- */
 {
 	"category": [
 		{
@@ -23,7 +17,8 @@
 			"postCount": "2"
 		}
 	],
-	"latestPosts": [
+	"currentView": [],
+	"allPosts": [
 		{
 			"category": "Angular",
 			"id": "kz-posts-angular-1",
@@ -33,6 +28,7 @@
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": true,
 			"contentLink": "Angular: Difference between Controller, Factory and Service" 
 		},
 		{
@@ -44,6 +40,7 @@
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": true,
 			"contentLink": "Spring: Bean Factory vs ApplicationContext Factory"
 		},
 		{
@@ -55,30 +52,31 @@
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": true,
 			"contentLink": "MongoDB: Data import and export with mongodump, import, export, etc" 
 		},
 		{
 			"category": "OpenFire",
 			"id": "kz-posts-openfire-1",
 			"title": "OpenFire: Scalable XMPP Server with REST API",
-			"createdDate": "04/24/2016",
+			"createdDate": "04/23/2016",
 			"author": "kevin zeng",
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": true,
 			"contentLink": "OpenFire: Scalable XMPP Server with REST API"
-		}
-	],
-	"otherPosts": [
+		},
 		{
 			"category": "Angular",
 			"id": "kz-posts-angular-2",
 			"title": "Angular: Compare $http, $resource and Restangular",
-			"createdDate": "03/24/2016",
+			"createdDate": "03/22/2016",
 			"author": "kevin zeng",
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": false,
 			"contentLink": "Angular: Compare $http, $resource and Restangular" 
 		},
 		{
@@ -90,6 +88,7 @@
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": false,
 			"contentLink": "Spring: Dependency Injection with Setter and Constructor"
 		},
 		{
@@ -101,6 +100,7 @@
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": false,
 			"contentLink": "MongoDB: Data Denormalization vs Master Collection" 
 		},
 		{
@@ -112,7 +112,9 @@
 			"hightlighted": false,
 			"readOnly": true,
 			"searchAble": true,
+			"latest": false,
 			"contentLink": "OpenFire: Scalable XMPP Server with Smack API and Spark"
 		}
+
 	]
 }

@@ -2,20 +2,20 @@
 
 /**
  * @ngdoc function
- * @name Blog.service:PostService
+ * @name Blog.service:HomeService
  * @description
- * # PostService
+ * # HomeService
  * Service of Blog Application
  */
 var app = angular.module('Blog');
 
-app.service('PostService', ['$http', '$q', function($http, $q) {
+app.service('HomeService', ['$http', '$q', function($http, $q) {
 
-	var uri = "app/src/data/post.data.json";
+	var uri = "app/src/data/overview.data.json";
 
 	var deferred = $q.defer();
 
-	this.getPosts = function() {
+	this.getOverview = function() {
 
 		$http.get(uri).then(
 			function(response){
@@ -23,7 +23,6 @@ app.service('PostService', ['$http', '$q', function($http, $q) {
 			}, 
 			function(error){
 				// handling error exception here
-				console.log(error);
 				deferred.reject(error);
 			});
 

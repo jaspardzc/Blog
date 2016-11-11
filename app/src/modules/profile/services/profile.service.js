@@ -2,20 +2,20 @@
 
 /**
  * @ngdoc function
- * @name Blog.service:PostService
+ * @name Blog.service:ProfileService
  * @description
- * # PostService
+ * # ProfileService
  * Service of Blog Application
  */
 var app = angular.module('Blog');
 
-app.service('PostService', ['$http', '$q', function($http, $q) {
+app.service('ProfileService', ['$http', '$q', function($http, $q) {
 
-	var uri = "app/src/data/post.data.json";
+	var uri = "app/src/data/profile.data.json";
 
 	var deferred = $q.defer();
 
-	this.getPosts = function() {
+	this.getProfile = function() {
 
 		$http.get(uri).then(
 			function(response){
