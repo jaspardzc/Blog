@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.controller:SignupCtrl
@@ -7,15 +5,19 @@
  * # SignupCtrl
  * Controller of the Blog Application
  */
+(function() {
+'use strict';
+
 var app = angular.module('Blog');
 
-app.controller('SignupCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
+	app.controller('SignupCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
 
-	$scope.init = function() {
+		$scope.init = function() {
 
-	};
+		};
 
 
-	/* Entry Point of Contact Controller */
-	$scope.init();
-}]);
+		/* Entry Point of Contact Controller */
+		$scope.init();
+	}]);
+})();

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.controller:PostCtrl
@@ -7,117 +5,121 @@
  * # PostCtrl
  * Controller of Blog Application
  */
-var app = angular.module('Blog');
+(function() {
+'use strict';
 
-app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostService) {
+	var app = angular.module('Blog');
 
-	/** Scope Objects for Post Controller **/
-	$scope.today = '';
+	app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostService) {
 
-	$scope.query = {
-		search: '',
-		timelines: [
-			{
-				"name": "Latest Posts",
-				"date": new Date() + ''
-			},
-			{
-				"name": "History Posts",
-				"date": ''
-			},
-			{
-				"name": "All Posts",
-				"date": ''
-			}
-		]
-	};
+		/** Scope Objects for Post Controller **/
+		$scope.today = '';
 
-	$scope.posts = '';
+		$scope.query = {
+			search: '',
+			timelines: [
+				{
+					"name": "Latest Posts",
+					"date": new Date() + ''
+				},
+				{
+					"name": "History Posts",
+					"date": ''
+				},
+				{
+					"name": "All Posts",
+					"date": ''
+				}
+			]
+		};
 
-	/** Watchers **/
-	$scope.$watch('query.search', function(newVal, oldVal) {
-		//console.log("Search Criteria: " + newVal);
-	});
+		$scope.posts = '';
 
-	$scope.$watch('query.timeline', function(newVal, oldVal) {
-		//console.log("Timeline: " + newVal);
-		$scope.switchPostTimeline(newVal);
-
-	});
- 
-	/** Functions for Post Controller **/
-	$scope.init = function() {
-		$scope.setDate();
-		
-		PostService.getPosts().then(function success(response) {
-			$scope.posts = response.data;
-			$scope.setDefaultPosts();
-		}, function error(response) {
-			console.log(response);
+		/** Watchers **/
+		$scope.$watch('query.search', function(newVal, oldVal) {
+			//console.log("Search Criteria: " + newVal);
 		});
-	};
 
-	$scope.setDate = function() {
-		var today = new Date();
+		$scope.$watch('query.timeline', function(newVal, oldVal) {
+			//console.log("Timeline: " + newVal);
+			$scope.switchPostTimeline(newVal);
 
-		var localDateString = today.toLocaleString();
+		});
+	 
+		/** Functions for Post Controller **/
+		$scope.init = function() {
+			$scope.setDate();
+			
+			PostService.getPosts().then(function success(response) {
+				$scope.posts = response.data;
+				$scope.setDefaultPosts();
+			}, function error(response) {
+				console.log(response);
+			});
+		};
 
-		var localTimeString = today.toLocaleTimeString();
+		$scope.setDate = function() {
+			var today = new Date();
 
-		$scope.today = localDateString + ' ';
-	};
+			var localDateString = today.toLocaleString();
 
-	$scope.setDefaultPosts = function() {
-		if (angular.isDefined($scope.posts.currentView)) {
+			var localTimeString = today.toLocaleTimeString();
+
+			$scope.today = localDateString + ' ';
+		};
+
+		$scope.setDefaultPosts = function() {
+			if (angular.isDefined($scope.posts.currentView)) {
+				$scope.posts.currentView = [];
+				angular.forEach($scope.posts.allPosts, function(value, key) {
+					if (value.latest === true && $scope.posts.currentView.indexOf(value) === -1) {
+						$scope.posts.currentView.push(value);
+					}
+				});
+			}
+		};
+
+		$scope.setHistoryPosts = function() {
 			$scope.posts.currentView = [];
 			angular.forEach($scope.posts.allPosts, function(value, key) {
-				if (value.latest === true && $scope.posts.currentView.indexOf(value) === -1) {
+				if (value.latest !== true && $scope.posts.currentView.indexOf(value) === -1) {
 					$scope.posts.currentView.push(value);
 				}
 			});
-		}
-	};
+		};
 
-	$scope.setHistoryPosts = function() {
-		$scope.posts.currentView = [];
-		angular.forEach($scope.posts.allPosts, function(value, key) {
-			if (value.latest !== true && $scope.posts.currentView.indexOf(value) === -1) {
-				$scope.posts.currentView.push(value);
+		$scope.setAllPosts = function() {
+			$scope.posts.currentView = [];
+			$scope.posts.currentView = $scope.posts.allPosts;
+		};
+
+		$scope.switchPostTimeline = function(timeline) {
+			switch(timeline) {
+				case 'Latest Posts': $scope.setDefaultPosts();break;
+				case 'History Posts': $scope.setHistoryPosts();break;
+				case 'All Posts': $scope.setAllPosts();break;			
 			}
-		});
-	};
+		};
 
-	$scope.setAllPosts = function() {
-		$scope.posts.currentView = [];
-		$scope.posts.currentView = $scope.posts.allPosts;
-	};
+		$scope.doPostSearch = function() {
+			console.log("Post Search: " + $scope.query.search);
+			console.log("Timeline: " + $scope.query.timeline);
+		};
 
-	$scope.switchPostTimeline = function(timeline) {
-		switch(timeline) {
-			case 'Latest Posts': $scope.setDefaultPosts();break;
-			case 'History Posts': $scope.setHistoryPosts();break;
-			case 'All Posts': $scope.setAllPosts();break;			
-		}
-	};
+		$scope.showCategory = function(category) {
+			console.log("Switch to Category: " + category.type);
+			$scope.posts.currentView = [];
+			angular.forEach($scope.posts.allPosts, function(value, key) {
+				if (value.category === category.type && $scope.posts.currentView.indexOf(value) === -1) {
+					$scope.posts.currentView.push(value);
+				}
+			});		
+		};
 
-	$scope.doPostSearch = function() {
-		console.log("Post Search: " + $scope.query.search);
-		console.log("Timeline: " + $scope.query.timeline);
-	};
-
-	$scope.showCategory = function(category) {
-		console.log("Switch to Category: " + category.type);
-		$scope.posts.currentView = [];
-		angular.forEach($scope.posts.allPosts, function(value, key) {
-			if (value.category === category.type && $scope.posts.currentView.indexOf(value) === -1) {
-				$scope.posts.currentView.push(value);
-			}
-		});		
-	};
-
-	/** Entry Point for Post Controller **/
-	$scope.init();
+		/** Entry Point for Post Controller **/
+		$scope.init();
 
 
 
-}]);
+	}]);
+})();

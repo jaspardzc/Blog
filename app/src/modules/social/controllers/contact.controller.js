@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.controller:ContactCtrl
@@ -7,145 +5,150 @@
  * # ContactCtrl
  * Controller of the Blog Application
  */
-var app = angular.module('Blog');
+(function() {
+'use strict';
 
-app.controller('ContactCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
+	var app = angular.module('Blog');
 
-	$scope.contact = {
-		fromAddress: '',
-		toAddress: '',
-		subject: '',
-		content: '',
-		type: []
-	};
+	app.controller('ContactCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
 
-	$scope.alert = {
-		valid: false,
-		success: {
-			valid: false
-		},
-		failure: {
-			valid: false
-		}
-	};
+		$scope.contact = {
+			fromAddress: '',
+			toAddress: '',
+			subject: '',
+			content: '',
+			type: []
+		};
 
-	$scope.errorMessage = '';
-	$scope.isEmailValid = true;
+		$scope.alert = {
+			valid: false,
+			success: {
+				valid: false
+			},
+			failure: {
+				valid: false
+			}
+		};
 
-	/* Setter and Getters */
-	$scope.setContact = function() {
-		$scope.contact.toAddress = 'kevinzengdev@gmail.com';
+		$scope.errorMessage = '';
+		$scope.isEmailValid = true;
 
-		var array = [];
-		array.push('NORMAL');
-		array.push('URGENT');
-		$scope.contact.type = array;
-	};
+		/* Setter and Getters */
+		$scope.setContact = function() {
+			$scope.contact.toAddress = 'kevinzengdev@gmail.com';
 
-	$scope.getContact = function() {
-		return $scope.contact; 
-	};
+			var array = [];
+			array.push('NORMAL');
+			array.push('URGENT');
+			$scope.contact.type = array;
+		};
 
-	$scope.$watch('contact.fromAddress', function(newVal, oldVal) {
-		var regex =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (newVal !== oldVal) {
-			if (!regex.test(newVal)) {
-				$scope.isEmailValid = false;
+		$scope.getContact = function() {
+			return $scope.contact; 
+		};
+
+		$scope.$watch('contact.fromAddress', function(newVal, oldVal) {
+			var regex =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if (newVal !== oldVal) {
+				if (!regex.test(newVal)) {
+					$scope.isEmailValid = false;
+				} else {
+					$scope.isEmailValid = true;
+				}
+	 		}
+		});
+
+		/**** Functions for Contact Controller ****/
+		$scope.init = function() {
+			$scope.setContact();
+
+		};
+
+		$scope.isValid = function(input) {
+			if (input === undefined ||
+				input === '' ||
+				input.fromAddress === undefined ||
+				input.fromAddress === '' ||
+				input.subject === undefined ||
+				input.subject === '' ||
+				input.content === undefined ||
+				input.content === '' ||
+				input.selectedType === undefined ||
+				input.selectedType === '') {
+
+				$scope.errorMessage = 'Please fill in the required fields in the contact form!!';
+
+				if (input.selectedType === undefined || input.selectedType === '') {
+					$scope.errorMessage = 'Please choose one TYPE in the contact form!!';
+				}
+
+				return false;
 			} else {
-				$scope.isEmailValid = true;
+				return true;
 			}
- 		}
-	});
+		};
 
-	/**** Functions for Contact Controller ****/
-	$scope.init = function() {
-		$scope.setContact();
-
-	};
-
-	$scope.isValid = function(input) {
-		if (input === undefined ||
-			input === '' ||
-			input.fromAddress === undefined ||
-			input.fromAddress === '' ||
-			input.subject === undefined ||
-			input.subject === '' ||
-			input.content === undefined ||
-			input.content === '' ||
-			input.selectedType === undefined ||
-			input.selectedType === '') {
-
-			$scope.errorMessage = 'Please fill in the required fields in the contact form!!';
-
-			if (input.selectedType === undefined || input.selectedType === '') {
-				$scope.errorMessage = 'Please choose one TYPE in the contact form!!';
+		$scope.isInputValid = function(error, input) {
+			if (angular.isDefined(error.required) && input.$dirty) {
+				return error.required === true;
+			} else {
+				return false;
 			}
+		};
 
-			return false;
-		} else {
-			return true;
-		}
-	};
+		$scope.submit = function(contact) {
+			if ($scope.isValid(contact)) {
 
-	$scope.isInputValid = function(error, input) {
-		if (angular.isDefined(error.required) && input.$dirty) {
-			return error.required === true;
-		} else {
-			return false;
-		}
-	};
+				console.log("Email Sent");
 
-	$scope.submit = function(contact) {
-		if ($scope.isValid(contact)) {
+				$scope.alert.valid = true;
 
-			console.log("Email Sent");
+				$timeout(function() {
+					$scope.alert.valid = false;
+				}, 2000);
 
-			$scope.alert.valid = true;
+				var button = $('#submitButton');
 
-			$timeout(function() {
-				$scope.alert.valid = false;
-			}, 2000);
+				button.addClass('disabled');
+				button.attr("disabled", "disabled");
 
-			var button = $('#submitButton');
+			   	emailjs.send("gmail","template_JWiX1XYz",
+			   					{
+			   						"to_name": "Kevin", 
+			   						"from_name": contact.fromAddress, 
+			   						"subject": contact.subject,
+			   						"type": contact.selectedType,
+			   						"message_html": contact.content
+			   					}
+			   				)
+						   	.then(function(response) {
+						   		console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+						   		$scope.alert.success.valid = true;
+						   		button.removeClass('disabled');
+						   		button.removeAttr('disabled');
+						   	}, function(error) {
+						   		console.log("FAILED, error=", error);
+						   		$scope.alert.failure.valid = true;
+						   		button.removeClass('disabled');
+						   		button.removeAttr('disabled');
+						   	});
+			} else {
+				console.log("input is not valid!");
 
-			button.addClass('disabled');
-			button.attr("disabled", "disabled");
+				$mdToast.show(
+					$mdToast.simple()
+							.textContent($scope.errorMessage)
+							.action('Close')
+							.capsule(true)
+							.hideDelay(3000)
+							.highlightAction(true)
+							.position('bottom right')
+				);		
+			}
+		};
 
-		   	emailjs.send("gmail","template_JWiX1XYz",
-		   					{
-		   						"to_name": "Kevin", 
-		   						"from_name": contact.fromAddress, 
-		   						"subject": contact.subject,
-		   						"type": contact.selectedType,
-		   						"message_html": contact.content
-		   					}
-		   				)
-					   	.then(function(response) {
-					   		console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
-					   		$scope.alert.success.valid = true;
-					   		button.removeClass('disabled');
-					   		button.removeAttr('disabled');
-					   	}, function(error) {
-					   		console.log("FAILED, error=", error);
-					   		$scope.alert.failure.valid = true;
-					   		button.removeClass('disabled');
-					   		button.removeAttr('disabled');
-					   	});
-		} else {
-			console.log("input is not valid!");
+		/* Entry Point of Contact Controller */
+		$scope.init();
+	}]);
+})();
 
-			$mdToast.show(
-				$mdToast.simple()
-						.textContent($scope.errorMessage)
-						.action('Close')
-						.capsule(true)
-						.hideDelay(3000)
-						.highlightAction(true)
-						.position('bottom right')
-			);		
-		}
-	};
-
-	/* Entry Point of Contact Controller */
-	$scope.init();
-}]);

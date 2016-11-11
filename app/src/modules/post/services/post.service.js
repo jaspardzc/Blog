@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.service:PostService
@@ -7,26 +5,30 @@
  * # PostService
  * Service of Blog Application
  */
-var app = angular.module('Blog');
+(function() {
+'use strict';
 
-app.service('PostService', ['$http', '$q', function($http, $q) {
+	var app = angular.module('Blog');
 
-	var uri = "app/src/data/post.data.json";
+	app.service('PostService', ['$http', '$q', function($http, $q) {
 
-	var deferred = $q.defer();
+		var uri = "app/src/data/post.data.json";
 
-	this.getPosts = function() {
+		var deferred = $q.defer();
 
-		$http.get(uri).then(
-			function(response){
-				deferred.resolve(response);
-			}, 
-			function(error){
-				// handling error exception here
-				console.log(error);
-				deferred.reject(error);
-			});
+		this.getPosts = function() {
 
-		return deferred.promise;
-	};
-}]);
+			$http.get(uri).then(
+				function(response){
+					deferred.resolve(response);
+				}, 
+				function(error){
+					// handling error exception here
+					console.log(error);
+					deferred.reject(error);
+				});
+
+			return deferred.promise;
+		};
+	}]);
+})();

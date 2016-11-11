@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.service:ProfileService
@@ -7,26 +5,30 @@
  * # ProfileService
  * Service of Blog Application
  */
-var app = angular.module('Blog');
+(function() {
+'use strict';
 
-app.service('ProfileService', ['$http', '$q', function($http, $q) {
+	var app = angular.module('Blog');
 
-	var uri = "app/src/data/profile.data.json";
+	app.service('ProfileService', ['$http', '$q', function($http, $q) {
 
-	var deferred = $q.defer();
+		var uri = "app/src/data/profile.data.json";
 
-	this.getProfile = function() {
+		var deferred = $q.defer();
 
-		$http.get(uri).then(
-			function(response){
-				deferred.resolve(response);
-			}, 
-			function(error){
-				// handling error exception here
-				console.log(error);
-				deferred.reject(error);
-			});
+		this.getProfile = function() {
 
-		return deferred.promise;
-	};
-}]);
+			$http.get(uri).then(
+				function(response){
+					deferred.resolve(response);
+				}, 
+				function(error){
+					// handling error exception here
+					console.log(error);
+					deferred.reject(error);
+				});
+
+			return deferred.promise;
+		};
+	}]);
+})();

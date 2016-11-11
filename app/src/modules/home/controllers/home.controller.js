@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.controller:HomeCtrl
@@ -7,58 +5,62 @@
  * # HomeCtrl
  * Controller of the Blog Application
  */
-var app = angular.module('Blog');
+(function() {
+'use strict';
 
-app.controller('HomeCtrl', ['$scope', '__config', 'HomeService', 
-	function ($scope, __config, HomeService) {
+	var app = angular.module('Blog');
 
-	$scope.app_name = __config.app_name;
+	app.controller('HomeCtrl', ['$scope', '__config', 'HomeService', 
+		function ($scope, __config, HomeService) {
 
-	/** Scope Objects for Home Ctrl **/
-	$scope.today = '';
-	$scope.imagePath = 'app/src/images/avatar-1.jpg';
-	$scope.overview = '';
+		$scope.app_name = __config.app_name;
 
-	/** Functions for Home Ctrl **/
-	$scope.init = function() {
-		$scope.setDate();
+		/** Scope Objects for Home Ctrl **/
+		$scope.today = '';
+		$scope.imagePath = 'app/src/images/avatar-1.jpg';
+		$scope.overview = '';
 
-		HomeService.getOverview().then(function success(response) {
-			$scope.overview = response.data;
-		}, function error(response) {
-			console.log(response);
+		/** Functions for Home Ctrl **/
+		$scope.init = function() {
+			$scope.setDate();
+
+			HomeService.getOverview().then(function success(response) {
+				$scope.overview = response.data;
+			}, function error(response) {
+				console.log(response);
+			});
+		};
+
+		$scope.setDate = function() {
+			var today = new Date();
+
+			var localDateString = today.toLocaleString();
+
+			var localTimeString = today.toLocaleTimeString();
+
+			$scope.today = localDateString + ' ';
+		};
+
+		/* Function for ngClass */
+		$scope.isActive = function(index) {
+			//console.log(index);
+			return index === 0;
+		};
+
+		$scope.demo = {
+			showTooltip : false,
+			tipDirection : '',
+			selectedDirection: 'left'
+		};
+
+		$scope.$watch('demo.tipDirection',function(val) {
+			if (val && val.length ) {
+			  $scope.demo.showTooltip = true;
+			}
 		});
-	};
 
-	$scope.setDate = function() {
-		var today = new Date();
+		/**  Entry Point for Home Ctrl **/
+		$scope.init();
 
-		var localDateString = today.toLocaleString();
-
-		var localTimeString = today.toLocaleTimeString();
-
-		$scope.today = localDateString + ' ';
-	};
-
-	/* Function for ngClass */
-	$scope.isActive = function(index) {
-		//console.log(index);
-		return index === 0;
-	};
-
-	$scope.demo = {
-		showTooltip : false,
-		tipDirection : '',
-		selectedDirection: 'left'
-	};
-
-	$scope.$watch('demo.tipDirection',function(val) {
-		if (val && val.length ) {
-		  $scope.demo.showTooltip = true;
-		}
-	});
-
-	/**  Entry Point for Home Ctrl **/
-	$scope.init();
-
-}]);
+	}]);
+})();

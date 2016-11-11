@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name Blog.controller:SampleDirective
@@ -7,10 +5,13 @@
  * # SampleDirective
  * Directive of the Blog Application
  */
-var app = angular.module('Blog');
+(function() {
+'use strict';
 
+	var app = angular.module('Blog');
 
-app.directive('sampleDirective', ['$scope', function($scope) {
+	app.directive('sampleDirective', ['$scope', function($scope) {
 
-	
-}]);
+		
+	}]);
+})();
