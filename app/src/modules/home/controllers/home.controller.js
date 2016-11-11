@@ -1,17 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.controller:HomeCtrl
+ * @name Blog.controller:homeCtrl
  * @description
- * # HomeCtrl
+ * # homeCtrl
  * Controller of the Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-	var app = angular.module('Blog');
+	angular.module('Blog').controller('homeCtrl', homeCtrl);
 
-	app.controller('HomeCtrl', ['$scope', '__config', 'HomeService', 
-		function ($scope, __config, HomeService) {
+	homeCtrl.$inject = ['$scope', '__config', 'homeService'];
+
+	function homeCtrl($scope, __config, homeService) {
 
 		$scope.app_name = __config.app_name;
 
@@ -24,7 +25,7 @@
 		$scope.init = function() {
 			$scope.setDate();
 
-			HomeService.getOverview().then(function success(response) {
+			homeService.getOverview().then(function success(response) {
 				$scope.overview = response.data;
 			}, function error(response) {
 				console.log(response);
@@ -62,5 +63,5 @@
 		/**  Entry Point for Home Ctrl **/
 		$scope.init();
 
-	}]);
-})();
+	};
+})(window.app);

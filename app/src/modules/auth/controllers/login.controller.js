@@ -1,17 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.controller:LoginCtrl
+ * @name Blog.controller:loginCtrl
  * @description
- * # LoginCtrl
+ * # loginCtrl
  * Controller of the Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-	var app = angular.module('Blog');
+	angular.module('Blog').controller('loginCtrl', loginCtrl);
 
-	app.controller('LoginCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', '$location', '$cookies',
-						function ($scope, $rootScope, $mdToast, $timeout, $location, $cookies) {
+	loginCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout', '$location', '$cookies'];
+
+	function loginCtrl($scope, $rootScope, $mdToast, $timeout, $location, $cookies) {
 
 		$rootScope.admin = {
 			isAuthorized: false,
@@ -66,5 +67,5 @@
 
 		/* Entry Point of Contact Controller */
 		$scope.init();
-	}]);
-})();
+	};
+})(window.app);

@@ -1,16 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.service:PostService
+ * @name Blog.service:postService
  * @description
- * # PostService
+ * # postService
  * Service of Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-	var app = angular.module('Blog');
+	angular.module('Blog').service('postService', postService);
 
-	app.service('PostService', ['$http', '$q', function($http, $q) {
+	postService.$inject = ['$http', '$q'];
+
+	function postService($http, $q) {
 
 		var uri = "app/src/data/post.data.json";
 
@@ -30,5 +32,5 @@
 
 			return deferred.promise;
 		};
-	}]);
-})();
+	};
+})(window.app);

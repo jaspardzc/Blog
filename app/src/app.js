@@ -1,4 +1,3 @@
-'use strict';
 /**
  * @ngdoc overview
  * @name Blog
@@ -7,104 +6,113 @@
  *
  * Main module of the application.
  */
+(function(window, app) {
+'use strict';
 
-// local varialbles initialization
-var env = {};
-var config = {};
+  // local varialbles initialization
+  var env = {};
+  var config = {};
 
-// import environment variables if present (from /config/env.config.js)
-// import app config variables if present (from /config/app.config.js)
-if (window) {
-  Object.assign(env, window.__env);
-  Object.assign(config, window.__config);
-} 
+  // import environment variables if present (from /config/env.config.js)
+  // import app config variables if present (from /config/app.config.js)
+  if (window) {
+    Object.assign(env, window.__env);
+    Object.assign(config, window.__config);
+  } 
 
-// define AngularJS application
-var app = angular.module('Blog', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngAria',
-    'ngMaterial',
-    'ngMessages',
-    'ui.router',
-    'LocalStorageModule'
-]);
+  // define AngularJS application
+  app = angular.module('Blog', [
+      'ngAnimate',
+      'ngCookies',
+      'ngResource',
+      'ngRoute',
+      'ngSanitize',
+      'ngAria',
+      'ngMaterial',
+      'ngMessages',
+      'ui.router',
+      'LocalStorageModule'
+  ]);
 
-// register environment in AngularJS as constants
-app.constant('__env', env)
-    .constant('__config', config);
+  // register environment in AngularJS as constants
+  app.constant('__env', env)
+      .constant('__config', config);
 
-//
-function disableLogging($logProvider, __env) {
-  $logProvider.debugEnabled(__env.enableDebug);
-}
+  // bootstrap angular logging configration
+  function disableLogging($logProvider, __env) {
+    $logProvider.debugEnabled(__env.enableDebug);
+  }
 
-// inject dependencies
-disableLogging.$inject = ['$logProvider', '__env'];
+  // inject logging dependencies
+  disableLogging.$inject = ['$logProvider', '__env'];
 
-// config logging capability
-app.config(disableLogging);
+  // register with app global configuration
+  app.config(disableLogging);
 
-// bootstrap angular routing configuration based on state routing
-app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+  // bootstrap angular routing configuration based on state routing
+  function routingConfig($urlRouterProvider, $stateProvider) {
 
-      var loginState = {
-        name: 'login',
-        url: '/login',
-        templateUrl: 'app/src/modules/auth/views/login.view.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'vm'
-      }; 
+        var loginState = {
+          name: 'login',
+          url: '/login',
+          templateUrl: 'app/src/modules/auth/views/login.view.html',
+          controller: 'loginCtrl',
+          controllerAs: 'vm'
+        }; 
 
-      var signupState = {
-        name: 'signup',
-        url: '/signup',
-        templateUrl: 'app/src/modules/auth/views/signup.view.html',
-        controller: 'SignupCtrl',
-        controllerAs: 'vm'
-      }; 
+        var signupState = {
+          name: 'signup',
+          url: '/signup',
+          templateUrl: 'app/src/modules/auth/views/signup.view.html',
+          controller: 'signupCtrl',
+          controllerAs: 'vm'
+        }; 
 
-      var homeState = {
-        name: 'home',
-        url: '/home',
-        templateUrl: 'app/src/modules/home/views/home.view.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'vm'
-      };
+        var homeState = {
+          name: 'home',
+          url: '/home',
+          templateUrl: 'app/src/modules/home/views/home.view.html',
+          controller: 'homeCtrl',
+          controllerAs: 'vm'
+        };
 
-      var profileState = {
-        name: 'profile',
-        url: '/profile',
-        templateUrl: 'app/src/modules/profile/views/profile.view.html',
-        controller: 'ProfileCtrl',
-        controllerAs: 'vm'
-      };
+        var profileState = {
+          name: 'profile',
+          url: '/profile',
+          templateUrl: 'app/src/modules/profile/views/profile.view.html',
+          controller: 'profileCtrl',
+          controllerAs: 'vm'
+        };
 
-      var concatState = {
-        name: 'contact',
-        url: '/contact',
-        templateUrl: 'app/src/modules/social/views/contact.view.html',
-        controller: 'ContactCtrl',
-        controllerAs: 'vm'
-      };
+        var concatState = {
+          name: 'contact',
+          url: '/contact',
+          templateUrl: 'app/src/modules/social/views/contact.view.html',
+          controller: 'contactCtrl',
+          controllerAs: 'vm'
+        };
 
-      var postState = {
-        name: 'post',
-        url: '/post',
-        templateUrl: 'app/src/modules/post/views/post.view.html',
-        controller: 'PostCtrl',
-        controllerAs: 'vm'
-      };
+        var postState = {
+          name: 'post',
+          url: '/post',
+          templateUrl: 'app/src/modules/post/views/post.view.html',
+          controller: 'postCtrl',
+          controllerAs: 'vm'
+        };
 
-      $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/login');
 
-      $stateProvider.state(loginState);
-      $stateProvider.state(signupState);
-      $stateProvider.state(homeState);
-      $stateProvider.state(profileState);
-      $stateProvider.state(concatState);
-      $stateProvider.state(postState);
-}]);
+        $stateProvider.state(loginState);
+        $stateProvider.state(signupState);
+        $stateProvider.state(homeState);
+        $stateProvider.state(profileState);
+        $stateProvider.state(concatState);
+        $stateProvider.state(postState);
+  };
+
+  // inject routing dependencies
+  routingConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
+
+  // register with app global configuration
+  app.config(routingConfig);
+})(window, window.app);

@@ -1,16 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.controller:ContactCtrl
+ * @name Blog.controller:contactCtrl
  * @description
- * # ContactCtrl
+ * # contactCtrl
  * Controller of the Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-	var app = angular.module('Blog');
+	angular.module('Blog').controller('contactCtrl', contactCtrl);
 
-	app.controller('ContactCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
+	contactCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout'];
+
+	function contactCtrl($scope, $rootScope, $mdToast, $timeout) {
 
 		$scope.contact = {
 			fromAddress: '',
@@ -149,6 +151,6 @@
 
 		/* Entry Point of Contact Controller */
 		$scope.init();
-	}]);
-})();
+	};
+})(window.app);
 

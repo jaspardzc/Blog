@@ -1,16 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.service:ProfileService
+ * @name Blog.service:profileService
  * @description
- * # ProfileService
+ * # profileService
  * Service of Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
+	
+	angular.module('Blog').service('profileService', profileService);
 
-	var app = angular.module('Blog');
+	profileService.$inject = ['$http', '$q'];
 
-	app.service('ProfileService', ['$http', '$q', function($http, $q) {
+	function profileService($http, $q) {
 
 		var uri = "app/src/data/profile.data.json";
 
@@ -30,5 +32,5 @@
 
 			return deferred.promise;
 		};
-	}]);
-})();
+	};
+})(window.app);

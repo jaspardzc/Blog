@@ -1,16 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.controller:PostCtrl
+ * @name Blog.controller:postCtrl
  * @description
- * # PostCtrl
+ * # postCtrl
  * Controller of Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-	var app = angular.module('Blog');
+	angular.module('Blog').controller('postCtrl', postCtrl);
 
-	app.controller('PostCtrl', ['$scope', 'PostService', function ($scope, PostService) {
+	postCtrl.$inject = ['$scope', 'postService'];
+
+	function postCtrl($scope, postService) {
 
 		/** Scope Objects for Post Controller **/
 		$scope.today = '';
@@ -50,7 +52,7 @@
 		$scope.init = function() {
 			$scope.setDate();
 			
-			PostService.getPosts().then(function success(response) {
+			postService.getPosts().then(function success(response) {
 				$scope.posts = response.data;
 				$scope.setDefaultPosts();
 			}, function error(response) {
@@ -118,8 +120,5 @@
 
 		/** Entry Point for Post Controller **/
 		$scope.init();
-
-
-
-	}]);
-})();
+	};
+})(window.app);

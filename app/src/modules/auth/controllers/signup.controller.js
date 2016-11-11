@@ -1,16 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.controller:SignupCtrl
+ * @name Blog.controller:signupCtrl
  * @description
- * # SignupCtrl
+ * # signupCtrl
  * Controller of the Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-var app = angular.module('Blog');
+	angular.module('Blog').controller('signupCtrl', signupCtrl);
 
-	app.controller('SignupCtrl', ['$scope', '$rootScope', '$mdToast', '$timeout', function ($scope, $rootScope, $mdToast, $timeout) {
+	signupCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout'];
+
+	function signupCtrl($scope, $rootScope, $mdToast, $timeout) {
 
 		$scope.init = function() {
 
@@ -19,5 +21,5 @@ var app = angular.module('Blog');
 
 		/* Entry Point of Contact Controller */
 		$scope.init();
-	}]);
-})();
+	};
+})(window.app);

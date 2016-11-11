@@ -5,7 +5,7 @@
  * # SampleDirective
  * Directive of the Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
 	var app = angular.module('Blog');
@@ -14,4 +14,4 @@
 
 		
 	}]);
-})();
+})(window.app);

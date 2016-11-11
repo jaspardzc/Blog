@@ -1,17 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.controller:ProfileCtrl
+ * @name Blog.controller:profileCtrl
  * @description
- * # ProfileCtrl
+ * # profileCtrl
  * Controller of Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
-	var app = angular.module('Blog');
 
-	app.controller('ProfileCtrl', ['$scope', '$location',  'ProfileService', 
-		function ($scope, $location, ProfileService) {
+	angular.module('Blog').controller('profileCtrl', profileCtrl);
 
+	profileCtrl.$inject = ['$scope', '$location', 'profileService'];
+
+	function profileCtrl($scope, $location, profileService) {
 
 		$scope.profile = '';
 
@@ -108,7 +109,7 @@
 
 		$scope.init = function() {
 			
-			ProfileService.getProfile().then(function success(response) {
+			profileService.getProfile().then(function success(response) {
 				$scope.profile = response.data;
 				$scope.skills = $scope.profile.skills;
 				$scope.experiences = $scope.profile.experience.professional;
@@ -130,12 +131,11 @@
 	  					  	return "counts: " + y;
 	  					  }
 						});
-			console.log($scope.donut);
 		};
 
 		/* Entry Point for Profile Controller */
 		$scope.init();
 
-	}]);
-})();
+	};
+})(window.app);
 

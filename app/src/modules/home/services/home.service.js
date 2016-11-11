@@ -1,16 +1,18 @@
 /**
  * @ngdoc function
- * @name Blog.service:HomeService
+ * @name Blog.service:homeService
  * @description
- * # HomeService
+ * # homeService
  * Service of Blog Application
  */
-(function() {
+(function(app) {
 'use strict';
 
-var app = angular.module('Blog');
+	angular.module('Blog').service('homeService', homeService);
 
-	app.service('HomeService', ['$http', '$q', function($http, $q) {
+	homeService.$inject = ['$http', '$q'];
+
+	function homeService($http, $q) {
 
 		var uri = "app/src/data/overview.data.json";
 
@@ -29,5 +31,5 @@ var app = angular.module('Blog');
 
 			return deferred.promise;
 		};
-	}]);
-})();
+	};
+})(window.app);
