@@ -61,6 +61,10 @@
                   <li><a ui-sref="profile">Get Resume</a></li>
                 </ul>
               </li>
+              <li>
+                <div class="fb-like" style="padding:13px;"
+                    data-share="true" data-width="450" data-show-faces="true"></div>
+              </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -72,7 +76,7 @@
         </div>
       </div>
     </div>
-
+  
     <ui-view></ui-view>
 
     <div class="footer">
@@ -139,5 +143,30 @@
     });
     </script>
 
+    <!-- Facebook JavaScript SDK Async Loading -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '633420896860763',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>
+      FB.ui({
+        method: 'send',
+        link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+      });
+    </script>
 </body>
 </html>
