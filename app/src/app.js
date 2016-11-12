@@ -55,49 +55,73 @@
         var loginState = {
           name: 'login',
           url: '/login',
-          templateUrl: 'app/src/modules/auth/views/login.view.html',
-          controller: 'loginCtrl',
-          controllerAs: 'vm'
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/auth/views/login.view.html',
+              controller: 'loginCtrl',
+              controllerAs: 'vm'
+            }
+          }
         }; 
 
         var signupState = {
           name: 'signup',
           url: '/signup',
-          templateUrl: 'app/src/modules/auth/views/signup.view.html',
-          controller: 'signupCtrl',
-          controllerAs: 'vm'
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/auth/views/signup.view.html',
+              controller: 'signupCtrl',
+              controllerAs: 'vm'   
+            }
+          }
         }; 
 
         var homeState = {
           name: 'home',
           url: '/home',
-          templateUrl: 'app/src/modules/home/views/home.view.html',
-          controller: 'homeCtrl',
-          controllerAs: 'vm'
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/home/views/home.view.html',
+              controller: 'homeCtrl',
+              controllerAs: 'vm'
+            }
+          }
         };
 
         var profileState = {
           name: 'profile',
           url: '/profile',
-          templateUrl: 'app/src/modules/profile/views/profile.view.html',
-          controller: 'profileCtrl',
-          controllerAs: 'vm'
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/profile/views/profile.view.html',
+              controller: 'profileCtrl',
+              controllerAs: 'vm'
+            }
+          }
         };
 
         var concatState = {
           name: 'contact',
           url: '/contact',
-          templateUrl: 'app/src/modules/social/views/contact.view.html',
-          controller: 'contactCtrl',
-          controllerAs: 'vm'
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/social/views/contact.view.html',
+              controller: 'contactCtrl',
+              controllerAs: 'vm'
+            }
+          }
         };
 
         var postState = {
           name: 'post',
           url: '/post',
-          templateUrl: 'app/src/modules/post/views/post.view.html',
-          controller: 'postCtrl',
-          controllerAs: 'vm'
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/post/views/post.view.html',
+              controller: 'postCtrl',
+              controllerAs: 'vm'
+            }
+          }
         };
 
         $urlRouterProvider.otherwise('/login');

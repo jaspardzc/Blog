@@ -15,5 +15,5 @@
 	window.__config.app_version = '1.0';
 
 	// App Home Url
-	window.__config.app_home = 'http://localhost:8080/Blog/#/home';
+	window.__config.app_home = 'http://jaspardzc.github.io/Blog/#/home';
 }(this));
