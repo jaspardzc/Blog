@@ -58,7 +58,13 @@
                 <ul class="dropdown-menu">
                   <li><a href="https://github.com/jaspardzc" target="_blank">Github Repo</a></li>
                   <li><a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">Linkedin Profolio</a></li>
-                  <li><a ui-sref="profile">Get Resume</a></li>
+                  <li>
+                    <document-directive 
+                      color="black" 
+                      margin-left="20px;"
+                      document-name="My Resume">
+                    </document-directive>
+                  </li>
                 </ul>
               </li>
               <li>
@@ -132,8 +138,11 @@
     <script src="app/src/modules/post/services/post.service.js"></script>
     
     <!-- Directives Loading -->
-    <script src="app/src/components/directives/sample.directive.js"></script>
+    <script src="app/src/components/directives/image.directive.js"></script>
+    <script src="app/src/components/directives/video.directive.js"></script>
+    <script src="app/src/components/directives/document.directive.js"></script>
     <!-- Factories Loading -->
+
     <!-- Filters Loading -->
     
     <!-- TODO, using RequireJS or Other Module Loading ways to refactor the angular default loading -->

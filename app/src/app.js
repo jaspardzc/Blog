@@ -139,4 +139,8 @@
 
   // register with app global configuration
   app.config(routingConfig);
+
+
+  // TODO, restangular configuration
+  
 })(window, window.app);
