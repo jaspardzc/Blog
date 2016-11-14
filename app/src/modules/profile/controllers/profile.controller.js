@@ -14,6 +14,7 @@
 
 	function profileCtrl($scope, $location, profileService) {
 
+		$scope.loading = false;
 		$scope.profile = '';
 
 		$scope.skills = '';
@@ -115,6 +116,8 @@
 				$scope.experiences = $scope.profile.experience.professional;
 				$scope.educations = $scope.profile.education;
 				$scope.basic = $scope.profile.basic;
+
+				$scope.loading = true;
 			}, function error(response) {
 				console.log(response);
 			});

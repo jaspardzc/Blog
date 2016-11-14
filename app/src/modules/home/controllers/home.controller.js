@@ -17,6 +17,7 @@
 		$scope.app_name = __config.app_name;
 
 		/** Scope Objects for Home Ctrl **/
+		$scope.loading = false;
 		$scope.today = '';
 		$scope.imagePath = 'app/src/images/avatar-1.jpg';
 		$scope.overview = '';
@@ -27,6 +28,8 @@
 
 			homeService.getOverview().then(function success(response) {
 				$scope.overview = response.data;
+
+				$scope.loading = true;
 			}, function error(response) {
 				console.log(response);
 			});

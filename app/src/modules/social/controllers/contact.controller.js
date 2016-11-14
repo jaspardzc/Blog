@@ -34,6 +34,7 @@
 
 		$scope.errorMessage = '';
 		$scope.isEmailValid = true;
+		$scope.loading = false;
 
 		/* Setter and Getters */
 		$scope.setContact = function() {
@@ -63,7 +64,7 @@
 		/**** Functions for Contact Controller ****/
 		$scope.init = function() {
 			$scope.setContact();
-
+			$scope.loading = true;
 		};
 
 		$scope.isValid = function(input) {

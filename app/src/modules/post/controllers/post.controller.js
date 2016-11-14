@@ -16,6 +16,7 @@
 
 		/** Scope Objects for Post Controller **/
 		$scope.today = '';
+		$scope.loading = false;
 
 		$scope.query = {
 			search: '',
@@ -55,6 +56,8 @@
 			postService.getPosts().then(function success(response) {
 				$scope.posts = response.data;
 				$scope.setDefaultPosts();
+
+				$scope.loading = true;
 			}, function error(response) {
 				console.log(response);
 			});

@@ -45,7 +45,7 @@
 				{
 					"title": "Software Engineer",
 					"company": "China Telecom Global",
-					"timespan": "2011 - 2013",
+					"timespan": "2013 - 2013",
 					"location": "Wuhan, Hubei, China"					
 				}
 			],
@@ -54,18 +54,28 @@
 		"skills": [
 			{
 				"title": "Front End",
-				"description": "Proficient with Responsive Web Design and Latest Front End Technologies, extensive experiences with AngularJS,Bootstrap, JQuery, HTML, CSS, and Material Design, hands on experience with Front End Architecture Design and Refactoring",
-				"startDate": "April 2012"
+				"description": "Proficient with Responsive Web Design and Latest Front End Technologies, extensive experiences with AngularJS, Bootstrap, JQuery, HTML, CSS, and Material Design, rich experiences with Frontend Development Build Flow tool Gulp, familiar with package management tool like Npm and Bower, hands on experience with Front End Architecture Design and Refactoring",
+				"keywords": ["AngularJS", "Bootstrap", "HTML", "CSS", "Material Design", "Gulp", "Npm", "Bower"]
 			},
 			{
 				"title": "Back End",
-				"description": "Proficient with Microservices and Modularizing Application Development, hands on experiences with API programming and management, familiar with Java, JEE, Spring, Hibernate, Maven, JDBC, experienced in both Business Functionalities Development and Fundational Components Implementation",
-				"startDate": "April 2011"
+				"description": "Proficient with Microservices and Modularizing Application Development, hands on experiences with API programming and API Specification, familiar with Java, JEE, Spring, Spring Data, Hibernate, Maven, JDBC, experienced in both Business Functionalities Development and Fundational Components Development",
+				"keywords": ["Microservices", "Java", "Hibernate", "Maven", "Spring", "Spring Data"]
+			},
+			{
+				"title": "Databases",
+				"description": "Extensive experiences with MySQL and MongoDB, proficient with Database Administration Tools like MySQL Workbench and Robomongo, familiar with Oracle 10g Database and Elastic Search",
+				"keywords": ["MySQL", "MongoDB", "Robomongo", "ElasticSearch", "Oracle"]
 			},
 			{
 				"title": "Web Services",
-				"description": "Proficient with RESTful Web Services and WebSockets, hands on experiences with Tomcat Deployment and Docker Image Build, familiar with JAX-RS, Jersey, OpenFire, XMPP, HTTP, Docker, Tomcat",
-				"startDate": "April 2012"
+				"description": "Proficient with RESTful Web Services and WebSockets, hands on experiences with Tomcat Deployment and Docker Image Build, familiar with JAX-RS, Jersey, OpenFire, XMPP, HTTP, Tomcat, Node Server",
+				"keywords": ["Restful WebService", "Tomcat", "Jersey", "HTTP", "OpenFire", "Node"]
+			},
+			{
+				"title": "DevOps",
+				"description": "Experienced with DevOps PipeLine, hands on experience with Jenkins, Docker, Chef Infrastructure setup, rich experience with Enterprise Linux Environment",
+				"keywords": ["Jenkins", "Docker", "Chef", "Linux"]
 			}
 		]
 	}

@@ -20,7 +20,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div id="wrapper">
         <div style="margin-top:80px;">
-            <div id="page-inner">
+            <div id="page-inner" class="div_opacity_animation" ng-class="{div_fade_in: loading}">
                 <div class="row col-md-12 col-sm-12 col-xs-12" style="position:fixed;z-index:1000">
                   <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
                                   md-direction="{{demo.selectedDirection}}">
@@ -121,7 +121,7 @@
                             <md-card-title-text>
                               <span class="md-headline text-success">Website</span>
                               <span class="md-subhead">
-                                <a href="http://jaspardzc.github.io/Blog/#/home" target="_blank">http://jaspardzc.github.io/Blog/#/home</a>
+                                <a href="#/home">http://jaspardzc.github.io/Blog/#/home</a>
                               </span>
                             </md-card-title-text>
                           </md-card-title>

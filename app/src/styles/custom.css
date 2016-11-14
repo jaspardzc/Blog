@@ -348,6 +348,25 @@ span.red {
 
 /*----------------------- DIVIDER LINE --------------------------*/
 
+/*============= ANGULAR Animations START =================*/
+
+.div_opacity_animation {
+  transition: opacity 3.5s;  
+  opacity: 0;
+}
+
+.div_fade_in {
+  opacity: 1;
+}
+
+.div_fade_out {
+  opacity: 0;
+}
+
+/*============= ANGULAR Animations End =================*/
+
+/*----------------------- DIVIDER LINE --------------------------*/
+
 /*============= ANGULAR MATERIAL COMPONENTS START =================*/
 
 /**** Angular Material TOAST ****/
@@ -415,7 +434,6 @@ span.red {
 .navbar {
 border-radius: 0px; 
 }
-
 
 
 /************* Angular UI CSS STYLE ***********/
