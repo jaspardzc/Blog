@@ -10,17 +10,20 @@
 
 	angular.module('Blog').controller('trendingCtrl', trendingCtrl);
 
-	trendingCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout'];
+	trendingCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout', '$state', '$localStorage'];
 
-	function trendingCtrl($scope, $rootScope, $mdToast, $timeout) {
+	function trendingCtrl($scope, $rootScope, $mdToast, $timeout, $state, $localStorage) {
 
 		$scope.videos = [];
 		$scope.init = function() {
-			$scope.videos = ['//www.youtube.com/embed/9y_JM1cbC1E', 
-				'//www.youtube.com/embed/jlwGcgFfcnU', 
-				'//www.youtube.com/embed/Av2Umb6nELU', 
-				'//www.youtube.com/embed/p74282nDMX8'];
-
+			if ($localStorage.token === undefined || $localStorage.token === '') {
+				$state.go('login');
+			} else {
+				$scope.videos = ['//www.youtube.com/embed/9y_JM1cbC1E', 
+					'//www.youtube.com/embed/jlwGcgFfcnU', 
+					'//www.youtube.com/embed/Av2Umb6nELU', 
+					'//www.youtube.com/embed/p74282nDMX8'];
+				}
 		};
 
 		/* Entry Point of Contact Controller */

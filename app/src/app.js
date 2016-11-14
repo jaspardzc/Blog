@@ -23,6 +23,7 @@
   // define AngularJS application
   app = angular.module('Blog', [
       'ngAnimate',
+      'ngStorage',
       'ngCookies',
       'ngResource',
       'ngRoute',
@@ -30,8 +31,7 @@
       'ngAria',
       'ngMaterial',
       'ngMessages',
-      'ui.router',
-      'LocalStorageModule'
+      'ui.router'
   ]);
 
   // register environment in AngularJS as constants
@@ -58,7 +58,7 @@
           views: {
             'default': {
               templateUrl: 'app/src/modules/auth/views/login.view.html',
-              controller: 'loginCtrl',
+              controller: 'authCtrl',
               controllerAs: 'vm'
             }
           }

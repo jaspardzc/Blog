@@ -15,8 +15,6 @@
 	function sceFilter($sce) {
 
 		return function(data) {
-
-			console.log(data);
 			var newVal = $sce.trustAsResourceUrl(data);
 			return newVal;
 		};

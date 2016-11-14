@@ -10,9 +10,9 @@
 
 	angular.module('Blog').controller('contactCtrl', contactCtrl);
 
-	contactCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout'];
+	contactCtrl.$inject = ['$scope', '$rootScope', '$mdToast', '$timeout', '$state', '$localStorage'];
 
-	function contactCtrl($scope, $rootScope, $mdToast, $timeout) {
+	function contactCtrl($scope, $rootScope, $mdToast, $timeout, $state, $localStorage) {
 
 		$scope.contact = {
 			fromAddress: '',
@@ -63,8 +63,12 @@
 
 		/**** Functions for Contact Controller ****/
 		$scope.init = function() {
-			$scope.setContact();
-			$scope.loading = true;
+			if ($localStorage.token === undefined || $localStorage.token === '') {
+				$state.go('login');
+			} else {
+				$scope.setContact();
+				$scope.loading = true;
+			}
 		};
 
 		$scope.isValid = function(input) {

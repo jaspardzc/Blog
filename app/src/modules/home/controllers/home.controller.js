@@ -10,9 +10,9 @@
 
 	angular.module('Blog').controller('homeCtrl', homeCtrl);
 
-	homeCtrl.$inject = ['$scope', '__config', 'homeService'];
+	homeCtrl.$inject = ['$scope', '__config', 'homeService', '$state', '$localStorage'];
 
-	function homeCtrl($scope, __config, homeService) {
+	function homeCtrl($scope, __config, homeService, $state, $localStorage) {
 
 		$scope.app_name = __config.app_name;
 
@@ -24,15 +24,20 @@
 
 		/** Functions for Home Ctrl **/
 		$scope.init = function() {
-			$scope.setDate();
 
-			homeService.getOverview().then(function success(response) {
-				$scope.overview = response.data;
+			if ($localStorage.token === undefined || $localStorage.token === '') {
+				$state.go('login');
+			} else {
+				$scope.setDate();
 
-				$scope.loading = true;
-			}, function error(response) {
-				console.log(response);
-			});
+				homeService.getOverview().then(function success(response) {
+					$scope.overview = response.data;
+
+					$scope.loading = true;
+				}, function error(response) {
+					console.log(response);
+				});
+			}
 		};
 
 		$scope.setDate = function() {
@@ -47,7 +52,6 @@
 
 		/* Function for ngClass */
 		$scope.isActive = function(index) {
-			//console.log(index);
 			return index === 0;
 		};
 

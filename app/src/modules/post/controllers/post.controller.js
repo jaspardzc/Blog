@@ -10,9 +10,9 @@
 
 	angular.module('Blog').controller('postCtrl', postCtrl);
 
-	postCtrl.$inject = ['$scope', 'postService'];
+	postCtrl.$inject = ['$scope', 'postService', '$state', '$localStorage'];
 
-	function postCtrl($scope, postService) {
+	function postCtrl($scope, postService, $state, $localStorage) {
 
 		/** Scope Objects for Post Controller **/
 		$scope.today = '';
@@ -51,16 +51,20 @@
 	 
 		/** Functions for Post Controller **/
 		$scope.init = function() {
-			$scope.setDate();
-			
-			postService.getPosts().then(function success(response) {
-				$scope.posts = response.data;
-				$scope.setDefaultPosts();
+			if ($localStorage.token === undefined || $localStorage.token === '') {
+				$state.go('login');
+			} else {
+				$scope.setDate();
+				
+				postService.getPosts().then(function success(response) {
+					$scope.posts = response.data;
+					$scope.setDefaultPosts();
 
-				$scope.loading = true;
-			}, function error(response) {
-				console.log(response);
-			});
+					$scope.loading = true;
+				}, function error(response) {
+					console.log(response);
+				});
+			}
 		};
 
 		$scope.setDate = function() {

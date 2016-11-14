@@ -10,9 +10,9 @@
 
 	angular.module('Blog').controller('profileCtrl', profileCtrl);
 
-	profileCtrl.$inject = ['$scope', '$location', 'profileService'];
+	profileCtrl.$inject = ['$scope', 'profileService', '$state', '$localStorage'];
 
-	function profileCtrl($scope, $location, profileService) {
+	function profileCtrl($scope, profileService, $state, $localStorage) {
 
 		$scope.loading = false;
 		$scope.profile = '';
@@ -109,31 +109,36 @@
 		};
 
 		$scope.init = function() {
+
+			if ($localStorage.token === undefined || $localStorage.token === '') {
+				$state.go('login');
+			} else {
+				profileService.getProfile().then(function success(response) {
+					$scope.profile = response.data;
+					$scope.skills = $scope.profile.skills;
+					$scope.experiences = $scope.profile.experience.professional;
+					$scope.educations = $scope.profile.education;
+					$scope.basic = $scope.profile.basic;
+
+					$scope.loading = true;
+				}, function error(response) {
+					console.log(response);
+				});
+
+				$scope.product.selected = $scope.product.list[0];
+
+				var array = $scope.populateChartData($scope.product.selected);
+
+				$scope.donut = new Morris.Donut({
+							  element: 'myDonut',
+							  data: array,
+							  colors: ['#7BB661', '#7BB661', '#72A0C1', '#72A0C1'],
+		  					  formatter: function (y) { 
+		  					  	return "counts: " + y;
+		  					  }
+							});
+			}
 			
-			profileService.getProfile().then(function success(response) {
-				$scope.profile = response.data;
-				$scope.skills = $scope.profile.skills;
-				$scope.experiences = $scope.profile.experience.professional;
-				$scope.educations = $scope.profile.education;
-				$scope.basic = $scope.profile.basic;
-
-				$scope.loading = true;
-			}, function error(response) {
-				console.log(response);
-			});
-
-			$scope.product.selected = $scope.product.list[0];
-
-			var array = $scope.populateChartData($scope.product.selected);
-
-			$scope.donut = new Morris.Donut({
-						  element: 'myDonut',
-						  data: array,
-						  colors: ['#7BB661', '#7BB661', '#72A0C1', '#72A0C1'],
-	  					  formatter: function (y) { 
-	  					  	return "counts: " + y;
-	  					  }
-						});
 		};
 
 		/* Entry Point for Profile Controller */

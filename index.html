@@ -77,9 +77,14 @@
               </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li><a ui-sref="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+            <ul class="nav navbar-nav navbar-right" ng-controller="authCtrl">
+              <li ng-show="!authorized"><a ui-sref="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li ng-show="!authorized"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+              <li ng-show="authorized">
+                <a ui-sref="login" ng-click="logout()">
+                  <span class="glyphicon glyphicon-log-out"></span> Sign Out
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -112,7 +117,7 @@
     <script src="app/src/libraries/angular-resource/angular-resource.min.js"></script>
     <script src="app/src/libraries/angular-route/angular-route.min.js"></script>
     <script src="app/src/libraries/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="app/src/libraries/angular-local-storage/angular-local-storage.min.js"></script>
+    <script src="app/src/libraries/angular-storage/ngStorage.min.js"></script>
     <script src="app/src/libraries/angular-messages/angular-messages.min.js"></script>
     <script src="app/src/libraries/angular-aria/angular-aria.min.js"></script>
     <script src="app/src/libraries/angular-material/angular-material.min.js"></script>
@@ -138,20 +143,26 @@
     <script src="app/src/modules/trending/controllers/trending.controller.js"></script>
     <script src="app/src/modules/social/controllers/contact.controller.js"></script>
     <script src="app/src/modules/auth/controllers/signup.controller.js"></script>
-    <script src="app/src/modules/auth/controllers/login.controller.js"></script>
+    <script src="app/src/modules/auth/controllers/auth.controller.js"></script>
 
 
     <!-- Services Loading -->
+    <script src="app/src/modules/auth/services/auth.service.js"></script>
     <script src="app/src/modules/home/services/home.service.js"></script>
     <script src="app/src/modules/profile/services/profile.service.js"></script>
     <script src="app/src/modules/post/services/post.service.js"></script>
     
+    <!-- Interceptors Loading -->
+    <script src="app/src/components/interceptors/http.interceptor.js"></script>
+  
     <!-- Directives Loading -->
     <script src="app/src/components/directives/image.directive.js"></script>
     <script src="app/src/components/directives/video.directive.js"></script>
     <script src="app/src/components/directives/document.directive.js"></script>
-    <!-- Factories Loading -->
 
+    <!-- Factories Loading -->
+    <script src="app/src/modules/auth/factories/auth.factory.js"></script>
+    
     <!-- Filters Loading -->
     <script src="app/src/components/filters/sce.filter.js"></script>
     
