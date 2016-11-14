@@ -35,7 +35,8 @@
             </button>
 
             <a class="navbar-brand cursor-hand" data-toggle="popover" 
-               data-content="Personal Blog" title="Maintained by Kevin Zeng"><strong>Blog</strong>
+               data-content="Personal Blog" title="Maintained by Kevin Zeng">
+               <strong class="text-success">Blog</strong>
             </a>
           </div>
 
@@ -52,6 +53,9 @@
               </li>
               <li>
                 <a ui-sref="post" title="Post Page"><strong>Post&emsp;&emsp;|</strong></a>
+              </li>
+              <li>
+                <a ui-sref="trending" title="Trending Page"><strong>Trending&emsp;&emsp;|</strong></a>
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle cursor-hand" data-toggle="dropdown">Quick Links<span class="caret"></span></a>
@@ -88,8 +92,11 @@
 
     <div class="footer">
       <div class="container">
-        <p class="col-md-offset-5 col-sm-offset-4 col-xs-offset-3"><span class="glyphicon glyphicon-heart"></span>
-            Copyright@<a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">Kevin Zeng</a>
+        <p class="text-center text-info">
+            <span>Copyright © 2016 -</span> 
+            <a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">Kevin Zeng</a>
+            <span>, all rights reserved. Designed with</span>
+            <span class="glyphicon glyphicon-heart"></span>
         </p>
       </div>
     </div>
@@ -128,9 +135,11 @@
     <script src="app/src/modules/home/controllers/home.controller.js"></script>
     <script src="app/src/modules/profile/controllers/profile.controller.js"></script>
     <script src="app/src/modules/post/controllers/post.controller.js"></script>
+    <script src="app/src/modules/trending/controllers/trending.controller.js"></script>
     <script src="app/src/modules/social/controllers/contact.controller.js"></script>
     <script src="app/src/modules/auth/controllers/signup.controller.js"></script>
     <script src="app/src/modules/auth/controllers/login.controller.js"></script>
+
 
     <!-- Services Loading -->
     <script src="app/src/modules/home/services/home.service.js"></script>
@@ -144,6 +153,7 @@
     <!-- Factories Loading -->
 
     <!-- Filters Loading -->
+    <script src="app/src/components/filters/sce.filter.js"></script>
     
     <!-- TODO, using RequireJS or Other Module Loading ways to refactor the angular default loading -->
 

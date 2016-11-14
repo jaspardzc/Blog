@@ -124,6 +124,18 @@
           }
         };
 
+        var trendingState = {
+          name: 'trending',
+          url: '/trending',
+          views: {
+            'default': {
+              templateUrl: 'app/src/modules/trending/views/trending.view.html',
+              controller: 'trendingCtrl',
+              controllerAs: 'vm'
+            }
+          }
+        };
+
         $urlRouterProvider.otherwise('/login');
 
         $stateProvider.state(loginState);
@@ -132,6 +144,7 @@
         $stateProvider.state(profileState);
         $stateProvider.state(concatState);
         $stateProvider.state(postState);
+        $stateProvider.state(trendingState);
   };
 
   // inject routing dependencies
