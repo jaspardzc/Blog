@@ -4,10 +4,6 @@ body {
     /* background-image: url("../images/background1.jpg"); */ 
 }
 
-#wrapper {
-    width: 100%;
-}
-
 #page-wrapper {
     padding: 15px 15px;
     min-height: 600px;
@@ -15,7 +11,7 @@ body {
    
 }
 #page-inner {
-    width:100%;
+/*     width:100%; */
     margin:10px 20px 10px 0px;
     padding:10px;
     min-height:800px;
@@ -91,7 +87,7 @@ font-size: 40px;
 border-radius: 50px;
 
 }
-    .bg-color-green {
+.bg-color-green {
 background-color: #00CE6F;
 color: #fff;
 }
@@ -442,4 +438,7 @@ border-radius: 0px;
   font-weight: bolder; 
 }
 
+.text-color-lightgray {
+  color: #999999;
+}
 

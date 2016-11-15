@@ -8,54 +8,36 @@
 }
 
 .tooltipdemoBasicUsage .left {
-  top: 70px !important;
+  top: 100px !important;
   left: 56px !important; 
 }
 
 .tooltipdemoBasicUsage .right {
-  top: 70px !important;
+  top: 100px !important;
   right: 56px !important; 
 } 
 </style>
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div id="wrapper">
-        <div style="margin-top:80px;">
+        <div style="margin-top:60px;">
             <div id="page-inner" class="div_opacity_animation" ng-class="{div_fade_in: loading}">
-                <div class="row col-md-12 col-sm-12 col-xs-12" style="position:fixed;z-index:1000">
-                  <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
-                                  md-direction="{{demo.selectedDirection}}">
-                    <md-fab-trigger class="align-with-text">
-                      <md-button aria-label="menu" class="md-fab md-primary">
-                        <md-icon class="glyphicon glyphicon-th-list" data-toggle="tooltip" title="Quick Links"></md-icon>
-                      </md-button>
-                    </md-fab-trigger>
-                    <md-toolbar>
-                      <md-fab-actions class="md-toolbar-tools">
-                        <md-button aria-label="comment" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-search" data-toggle="tooltip" title="search"></md-icon>
-                        </md-button>
-                        <md-button aria-label="label" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-share" data-toggle="tooltip" title="share"></md-icon>
-                        </md-button>
-                        <md-button aria-label="photo" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-heart" data-toggle="tooltip" title="like"></md-icon>
-                        </md-button>
-                        <md-button aria-label="photo" class="md-icon-button">
-                          <md-icon class="glyphicon glyphicon-download" data-toggle="tooltip" title="download"></md-icon>
-                        </md-button>
-                      </md-fab-actions>
-                    </md-toolbar>
-                  </md-fab-toolbar>
+
+                <div class="row" style="z-index:1000">
+                  <div class="col-md-12 col-sm-12 col-xs-12"> 
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="fb-like" style="padding:13px;"
+                          data-share="true" data-width="450" data-show-faces="true"></div>
+                      </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <strong class="text-primary font16 pull-right">{{app_name}} Time : {{today}}</strong>
+                    </div>
+                  </div>
                 </div>
                 <!-- End of Row -->
                 <hr/>                           
-                <div class="row">
-                  <div class="text-center">
-                    <strong class="text-primary font16">{{app_name}} Time : {{today}}</strong>
-                  </div>
-                </div>
 
                 <div class="row">
+
                   <div class="col-md-5 col-sm-12 col-xs-12">
                     <md-content class="md-padding" layout-xs="column" layout="row">
                       <div flex-xs flex-gt-xs="100" layout="column">
@@ -97,50 +79,63 @@
                       </div>
                     </md-content>
                   </div>
+
                   <div class="col-md-7 col-sm-12 col-xs-12">
                     <md-content class="md-padding" layout-xs="column" layout="row">
-                      <div flex-xs flex-gt-xs="100" layout="column">
-                        <md-card class="md-whiteframe-11dp">
-                          <md-card-header>
-                            <md-card-avatar>
-                              <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
-                            </md-card-avatar>
-                            <md-card-header-text>
-                              <span class="md-title">Highlighted Personal Projects</span>
-                              <span class="md-subhead">kevinzengdev@gmail</span>
-                            </md-card-header-text>
-                          </md-card-header>
-                          <md-card-title>
-                            <md-card-title-text>
-                              <span class="md-headline text-success">Available For：</span>
-                              <span class="md-subhead">Full Stack Software Enginner</span>
-                              <span class="md-subhead">Front End Software Enginner</span>
-                              <span class="md-subhead">Back End JEE Software Enginner</span>
-                              <span class="md-subhead">Native and Hybrid Mobile Developer</span>
-                            </md-card-title-text>
-                            <md-card-title-text>
-                              <span class="md-headline text-success">Website</span>
-                              <span class="md-subhead">
-                                <a href="#/home">http://jaspardzc.github.io/Blog/#/home</a>
-                              </span>
-                            </md-card-title-text>
-                          </md-card-title>
+                        <div class="md-whiteframe-11dp">
 
-                          <md-card-title>
-                            <md-card-title-text>
-                              <span class="md-headline text-success">Contact Info：</span>
-                              <span class="md-subhead">Mobile: (480)238-5679</span>
-                              <span class="md-subhead">Email: kevinzengdev@gmail.com</span>
-                            </md-card-title-text>
-                            <md-card-title-text>
-                              <span class="md-headline text-success">Linkedin</span>
-                              <span class="md-subhead">
-                                <a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">https://www.linkedin.com/in/kevin-zeng-38584a118</a>
-                              </span>
-                            </md-card-title-text>
-                          </md-card-title>
-                          <br/>
-                          <md-card-content>
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <span>
+                              <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
+                            </span>
+                            <span>
+                              <span class="md-title">Basic Information: </span>
+                            </span>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <p class="md-headline text-success">Available For：</p>
+                            <small class="md-subhead text-color-lightgray">Full Stack Software Enginner</small><br/>
+                            <small class="md-subhead text-color-lightgray">Front End Software Enginner</small><br/>
+                            <small class="md-subhead text-color-lightgray">Back End JEE Software Enginner</small><br/>
+                            <small class="md-subhead text-color-lightgray">Native and Hybrid Mobile Developer</small><br/>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <p class="md-headline text-success">Website</p>
+                            <small class="md-subhead">
+                              <a href="#/home">http://jaspardzc.github.io/Blog/#/home</a>
+                            </small>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <p class="md-headline text-success">Contact Info：</p>
+                            <small class="md-subhead text-color-lightgray">Mobile: (480)238-5679</small><br/>
+                            <small class="md-subhead text-color-lightgray">Email: kevinzengdev@gmail.com</small>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <p class="md-headline text-success">Linkedin</p>
+                            <small class="md-subhead">
+                              <a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">https://www.linkedin.com/in/kevin-zeng-38584a118</a>
+                            </small>
+                          </div>
+                          
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <br/><br/>
+                          </div>
+
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <span>
+                              <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
+                            </span>
+                            <span>
+                              <span class="md-title">Highlighted Personal Projects: </span>
+                            </span>
+                            <br/><br/>
+                          </div>
+
+                          <div class="col-md-12 col-sm-12 col-xs-12">
                             <div id="myCarousel" class="col-md-12 col-sm-12 col-xs-12 carousel slide border-default" data-ride="carousel" data-interval="false">
                               <!-- Indicators -->
                               <ol class="carousel-indicators">
@@ -182,10 +177,11 @@
                                 <span class="sr-only">Next</span>
                               </a>
                             </div>
-                          </md-card-content>
-                          <md-card-content>
+                          </div>
+
+                          <div class="col-md-12 col-sm-12 col-xs-12">
                             <p><strong>Kevin Zeng is very passionate and has great vision for his work. His focus keeps everything moving smoothly, he makes sure all the deadlines are met, and makes sure that whatever project he is working on meets the highest standards. Wish him a very successful future.</strong></p>
-                            <p class="pull-right"> - Mohammad Hossain Software Test Engineer at TriZetto Corp,Phoenix AZ</p>
+                            <p class="pull-right text-color-lightgray"> - Mohammad Hossain Software Test Engineer at TriZetto Corp,Phoenix AZ</p>
                             <br/><br/><br/><br/>
                             <blockquote class="blockquote-reverse bg-info">
                               <p><strong class="font20">Senior Software Engineer</strong>
@@ -193,10 +189,8 @@
                                  <small>November 2015 - Present | Phoenix, Arizona Area</small>
                               </p>
                             </blockquote>
-                          </md-card-content>
-
-                        </md-card>
-                      </div>
+                          </div>
+                        </div>
                     </md-content>
                   </div>
                 </div>

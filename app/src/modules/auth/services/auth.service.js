@@ -20,7 +20,7 @@
 
 			var deferred = $q.defer();
 
-			$http.post(uri + '/credential.data.json', data).then(
+			$http.get(uri + '/credential.data.json').then(
 				function(response){
 
 					if (angular.equals(data.email, response.data.email)
