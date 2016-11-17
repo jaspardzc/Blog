@@ -2,22 +2,22 @@
 		"summary": {
 			"title": "About Me",
 			"description": ["Experienced in Highly Complex Web Application Development, proficient in Spring, Maven, Web Services and Front-end Technologies. Hands-on experiences with DevOps Infrastructure Setup. Addicted to Agile Environment and Open Source Community.",
-						   "Proficient with Responsive Web Design and Material Design"],
+						   ""],
 			"footer": "Code, Eat, Play, Sleep, Repeat"
 		},
 		"projects": [
 			{
 				"title": "Project - Blog",
-				"objective": "Blog is the my current personal website, contain profolio information, personal project brief, latest posts and more, built and tested wth cutting edge front end technology.",
+				"objective": "Buit with Cutting Edge Technologies, personal website.",
 				"details": [
 					{
-						"description": "Blog is Angular and Bootstrap Intensive, involved Modular Design and Material Design, implemented popular web app components such as autofill, carousel, mdTab, pagination, modal, etc."
+						"description": "Developed using multiple Frontend frameworks, continuously refactored based on leading industrial standard and web application best practices."
 					},
 					{
 						"description": "Blog is maintained on Github Repository, deployed on the github.io using Github Pages, checkout at the Github Link & Demo Link"
 					}
 				],
-				"environment": "Angular Web Application with Bootstrap, HTML, CSS, Material Design, Karma, Jasmine, etc",
+				"environment": "AngularJS, Bootstrap, HTML, CSS, Material Design, RequireJS, jQuery, JWT, Gulp, Npm, Bower, etc",
 				"links": {
 					"github": "https://github.com/jaspardzc/Blog",
 					"demo": "http://jaspardzc.github.io/blog/#/home"

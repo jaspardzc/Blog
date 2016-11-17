@@ -27,6 +27,9 @@
 			if ($localStorage.token !== '' && $localStorage.token !== undefined) {
 				$rootScope.authorized = true;
 				$state.go('home');
+			} else {
+
+				// OAuth Initialization
 			}
 		};
 
@@ -62,6 +65,7 @@
 		};
 
 		$scope.logout = function() {
+			//singoutGoogleOAuth();
 			authService.logout();
 			$state.go('login');
 		};

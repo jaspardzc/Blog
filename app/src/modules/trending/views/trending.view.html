@@ -1,17 +1,13 @@
-<div class="fluid-container col-md-12 col-sm-12 col-xs-12">
-    <div id="wrapper">
-        <!-- Page Content  -->
-        <div style="margin-top:80px;">
-            <div id="page-inner">
-            	<div class="row">
-					<div class="embed-responsive embed-responsive-16by9" 
-						 ng-repeat="video in videos">
-					    <iframe 
-					    	class="embed-responsive-item" 
-					    	ng-src="{{video | sceFilter}}"></iframe>
-					</div>
-            	</div>
-            </div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <!-- Page Content  -->
+    <div style="margin-top:40px;">
+        <div class="row">
+        	<div class="embed-responsive embed-responsive-16by9" 
+        		 ng-repeat="video in videos">
+        	    <iframe 
+        	    	class="embed-responsive-item" 
+        	    	ng-src="{{video | sceFilter}}"></iframe>
+        	</div>
         </div>
     </div>
 </div>

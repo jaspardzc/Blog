@@ -1,112 +1,112 @@
-<div class="fluid-container col-md-12 col-sm-12 col-xs-12">
-	<div class="wrapper">
-	    <div style="margin-top:80px;">
-            <div id="page-inner" class="div_opacity_animation" ng-class="{div_fade_in: loading}">
-                <div class="row">
-					<div class="col-md-6 col-sm-8 col-xs-11 col-md-offset-3 col-sm-offset-2 col-xs-offset-1" style="margin-top:80px;">
-						<div class="row col-md-12 col-sm-12 col-xs-12 shadow1" style="padding:2px;">
-							<p class="text-primary text-center"><strong>Leave Me a Message</strong></p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-8 col-xs-11 col-md-offset-3 col-sm-offset-2 col-xs-offset-1" style="margin-top:10px;">
-					    <div class="row col-md-12 col-sm-12 col-xs-12 shadow1" style="padding:10px;">
-						  	<form name="contactForm">
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12">
-									<label class="col-md-2 col-sm-2 col-xs-4 form-control-label pull-left text-success font16" 
-										   for="fromAddress">From&nbsp;Address:<span class="red">*<span>
-									</label>
-									<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right success" type="email" 
-										   placeholder="your email address..." id="fromAddress" required="true" name="fromAddress"
-										   ng-model="contact.fromAddress"
-										   ng-class="{danger: isInputValid(contactForm.fromAddress.$error, contactForm.fromAddress)}"/>
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div style="margin-top:30px;">
+		<div class="div_opacity_animation" ng-class="{div_fade_in: loading}">
+		    <div class="row">
+
+				<div class="col-md-12 col-sm-12 col-xs-12" style="padding:2px;">
+					<h3 class="text-primary text-center"><strong>Leave Me a Message</strong></h3>
+					<br/>
+				</div>
+
+				<div class="col-md-6 col-sm-8 col-xs-11 col-md-offset-3 col-sm-offset-2 col-xs-offset-1" 	 style="margin-top:10px;">
+				    <div class="row col-md-12 col-sm-12 col-xs-12 shadow1" style="padding:10px;">
+					  	<form name="contactForm">
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12">
+								<label class="col-md-2 col-sm-2 col-xs-4 form-control-label pull-left text-success font16" 
+									   for="fromAddress">From&nbsp;Address:<span class="red">*<span>
+								</label>
+								<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right success" type="email" 
+									   placeholder="your email address..." id="fromAddress" required="true" name="fromAddress"
+									   ng-model="contact.fromAddress"
+									   ng-class="{danger: isInputValid(contactForm.fromAddress.$error, contactForm.fromAddress)}"/>
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" 
+								 ng-messages="contactForm.fromAddress.$error" style="color:#D9534F" role="alert">
+								<div ng-if="contactForm.fromAddress.$error.required === true && contactForm.fromAddress.$dirty" 
+								     ng-message="required">
+									<strong>You did not enter the email</strong>
 								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" 
-									 ng-messages="contactForm.fromAddress.$error" style="color:#D9534F" role="alert">
-									<div ng-if="contactForm.fromAddress.$error.required === true && contactForm.fromAddress.$dirty" 
-									     ng-message="required">
-										<strong>You did not enter the email</strong>
-									</div>
-									<div ng-if="isEmailValid === false && contactForm.fromAddress.$dirty" 
-									     ng-message="required">
-										<strong>Please correct the Email Format</strong>
-									</div>
+								<div ng-if="isEmailValid === false && contactForm.fromAddress.$dirty" 
+								     ng-message="required">
+									<strong>Please correct the Email Format</strong>
 								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-									<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16"
-										   for="toAddress">To&nbsp;Address:
-									</label>
-									<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="email" value="{{contact.toAddress}}" 
-										   placeholder="recipient email address..." id="toAddress" readonly="readonly" ng-model="contact.toAddress"/>
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+								<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16"
+									   for="toAddress">To&nbsp;Address:
+								</label>
+								<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="email" value="{{contact.toAddress}}" 
+									   placeholder="recipient email address..." id="toAddress" readonly="readonly" ng-model="contact.toAddress"/>
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+								<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16">Type:
+									<span class="red">*<span>
+								</label>
+								<select ng-model="contact.selectedType" class="form-control col-md-3 col-sm-4 col-xs-5 pull-right">
+									<option ng-repeat="messageType in contact.type" ng-selected="$first">{{messageType}}</option>
+								</select>
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+								<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16">Subject:
+									<span class="red">*<span>
+								</label>
+								<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="text" 
+									   placeholder="subject title" required="true" name="subject" 
+									   ng-model="contact.subject" 
+									   ng-class="{danger: isInputValid(contactForm.subject.$error, contactForm.subject)}"
+									   maxlength="25" />
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" 
+								 ng-messages="contactForm.subject.$error" style="color:#D9534F" role="alert">
+								<div ng-if="contactForm.subject.$error.required === true && contactForm.subject.$dirty" 
+								     ng-message="required">
+									<strong>You did not enter the subject</strong>
 								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-									<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16">Type:
-										<span class="red">*<span>
-									</label>
-									<select ng-model="contact.selectedType" class="form-control col-md-3 col-sm-4 col-xs-5 pull-right">
-										<option ng-repeat="messageType in contact.type" ng-selected="$first">{{messageType}}</option>
-									</select>
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+								<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16">Content:
+									<span class="red">*<span>
+								</label>
+								<textarea class="form-control col-md-3 col-sm-4 col-xs-5 pull-right"
+								 		  placeholder="message content" required="true" name="content" 
+								 		  ng-model="contact.content" 
+								 		  ng-class="{danger: isInputValid(contactForm.content.$error, contactForm.content)}" 
+								 		  maxlength="1000" rows="10"></textarea>
+							</div>
+							<div class="row form-group col-md-12 col-sm-12 col-xs-12" 
+								 ng-messages="contactForm.content.$error" style="color:#D9534F" role="alert">
+								<div ng-if="contactForm.content.$error.required === true && contactForm.content.$dirty" 
+								     ng-message="required">
+									<strong>You did not enter the content</strong>
 								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-									<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16">Subject:
-										<span class="red">*<span>
-									</label>
-									<input class="form-control col-md-3 col-sm-4 col-xs-5 pull-right" type="text" 
-										   placeholder="subject title" required="true" name="subject" 
-										   ng-model="contact.subject" 
-										   ng-class="{danger: isInputValid(contactForm.subject.$error, contactForm.subject)}"
-										   maxlength="25" />
-								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" 
-									 ng-messages="contactForm.subject.$error" style="color:#D9534F" role="alert">
-									<div ng-if="contactForm.subject.$error.required === true && contactForm.subject.$dirty" 
-									     ng-message="required">
-										<strong>You did not enter the subject</strong>
-									</div>
-								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-									<label class="col-md-2 col-sm-2 col-xs-4 pull-left text-success font16">Content:
-										<span class="red">*<span>
-									</label>
-									<textarea class="form-control col-md-3 col-sm-4 col-xs-5 pull-right"
-									 		  placeholder="message content" required="true" name="content" 
-									 		  ng-model="contact.content" 
-									 		  ng-class="{danger: isInputValid(contactForm.content.$error, contactForm.content)}" 
-									 		  maxlength="1000" rows="10"></textarea>
-								</div>
-								<div class="row form-group col-md-12 col-sm-12 col-xs-12" 
-									 ng-messages="contactForm.content.$error" style="color:#D9534F" role="alert">
-									<div ng-if="contactForm.content.$error.required === true && contactForm.content.$dirty" 
-									     ng-message="required">
-										<strong>You did not enter the content</strong>
-									</div>
-								</div>
-								<div class="row col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-									<button class="btn btn-success col-md-2 col-sm-2 col-xs-4
-												   col-md-offset-8 col-sm-offset-8 col-xs-offset-4"
-											type="submit" ng-click="submit(contact)" data-toggle="tooltip" 
-											title="Send your message" id="submitButton">Submit</button>
-									<button class="btn btn-primary col-md-2 col-sm-2 col-xs-4 pull-right" type="reset" 
-											data-toggle="tooltip" title="Reset the Form">Reset</button>
-								</div> 
-							</form> 	
-						</div>
+							</div>
+							<div class="row col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+								<button class="btn btn-success col-md-2 col-sm-2 col-xs-4
+											   col-md-offset-8 col-sm-offset-8 col-xs-offset-4"
+										type="submit" ng-click="submit(contact)" data-toggle="tooltip" 
+										title="Send your message" id="submitButton">Submit</button>
+								<button class="btn btn-primary col-md-2 col-sm-2 col-xs-4 pull-right" type="reset" 
+										data-toggle="tooltip" title="Reset the Form">Reset</button>
+							</div> 
+						</form> 
+
 					</div>
 				</div>
-				
-				<div class="row">
-				    <div class="alert alert-success fade in text-center col-md-6 col-md-offset-3 col-xs-offset-1 col-xs-10 shadow1" 
-				    	 style="position:relative;margin-top:10px;" 
-				    	 ng-if="alert.valid === true">
-				    	<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				    	<strong>Successfully submitted the message!</strong>
-				    </div>
-				    <div class="alert alert-success fade in text-center col-md-6 col-md-offset-3 shadow1"
-				    	 style="position:relative;margin-top:10px;" 
-				    	 ng-if="alert.valid === true && alert.failure.valid === true">
-				    	<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				    	<strong>Fail to submit the message!</strong>
-				    </div>
-				</div>
+			</div>
+			
+			<div class="row">
+			    <div class="alert alert-success fade in text-center col-md-6 col-md-offset-3 col-xs-offset-1 col-xs-10 shadow1" 
+			    	 style="position:relative;margin-top:10px;" 
+			    	 ng-if="alert.valid === true">
+			    	<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			    	<strong>Successfully submitted the message!</strong>
+			    </div>
+			    <div class="alert alert-success fade in text-center col-md-6 col-md-offset-3 shadow1"
+			    	 style="position:relative;margin-top:10px;" 
+			    	 ng-if="alert.valid === true && alert.failure.valid === true">
+			    	<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			    	<strong>Fail to submit the message!</strong>
+			    </div>
 			</div>
 		</div>
 	</div>

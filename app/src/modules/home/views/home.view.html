@@ -1,227 +1,197 @@
-<style>
-.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button,
-.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
-  box-shadow: none;
-  border: none;
-  transform: none;
-  -webkit-transform: none; 
-}
-
-.tooltipdemoBasicUsage .left {
-  top: 100px !important;
-  left: 56px !important; 
-}
-
-.tooltipdemoBasicUsage .right {
-  top: 100px !important;
-  right: 56px !important; 
-} 
-</style>
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <div id="wrapper">
-        <div style="margin-top:60px;">
-            <div id="page-inner" class="div_opacity_animation" ng-class="{div_fade_in: loading}">
-
-                <div class="row" style="z-index:1000">
-                  <div class="col-md-12 col-sm-12 col-xs-12"> 
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="fb-like" style="padding:13px;"
-                          data-share="true" data-width="450" data-show-faces="true"></div>
-                      </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <strong class="text-primary font16 pull-right">{{app_name}} Time : {{today}}</strong>
-                    </div>
-                  </div>
-                </div>
-                <!-- End of Row -->
-                <hr/>                           
-
-                <div class="row">
-
-                  <div class="col-md-5 col-sm-12 col-xs-12">
-                    <md-content class="md-padding" layout-xs="column" layout="row">
-                      <div flex-xs flex-gt-xs="100" layout="column">
-                        <md-card class="md-whiteframe-11dp">
-                          <md-card-header>
-                            <md-card-avatar>
-                              <i class="glyphicon glyphicon-user" style="font-size:20px;"></i>
-                            </md-card-avatar>
-                            <md-card-header-text>
-                              <span class="md-title">Kevin Zeng</span>
-                              <span class="md-subhead">Full Stack Software Developer</span>
-                            </md-card-header-text>
-                          </md-card-header>
-                          <img ng-src="{{imagePath}}" class="md-card-image image-responsive" style="height:50%;" alt="Washed Out">
-                          <md-card-title>
-                            <md-card-title-text>
-                              <span class="md-headline">{{overview.summary.title}}</span>
-                              <span class="md-subhead"><em>{{overview.summary.footer}}</em></span>
-                            </md-card-title-text>
-                          </md-card-title>
-                          <md-card-actions layout="row" layout-align="start center">
-                            <md-button class="btn-success" href="#/contact">Contact Me</md-button>
-                            <md-button class="btn-primary">
-                              <document-directive 
-                                color="white" 
-                                margin-left="0px;"
-                                document-name="GET RESUME"></document-directive>
-                            </md-button>
-                            <md-card-icon-actions>
-                              <md-button class="md-icon-button" aria-label="toggle">
-                                <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
-                              </md-button>
-                            </md-card-icon-actions>
-                          </md-card-actions>
-                          <md-card-content>
-                            <p><strong ng-repeat="description in overview.summary.description">{{description}}<br/><br/></strong></p>
-                          </md-card-content>
-                        </md-card>
-                      </div>
-                    </md-content>
-                  </div>
-
-                  <div class="col-md-7 col-sm-12 col-xs-12">
-                    <md-content class="md-padding" layout-xs="column" layout="row">
-                        <div class="md-whiteframe-11dp">
-
-                          <div class="col-md-12 col-sm-12 col-xs-12">
-                            <span>
-                              <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
-                            </span>
-                            <span>
-                              <span class="md-title">Basic Information: </span>
-                            </span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <p class="md-headline text-success">Available For：</p>
-                            <small class="md-subhead text-color-lightgray">Full Stack Software Enginner</small><br/>
-                            <small class="md-subhead text-color-lightgray">Front End Software Enginner</small><br/>
-                            <small class="md-subhead text-color-lightgray">Back End JEE Software Enginner</small><br/>
-                            <small class="md-subhead text-color-lightgray">Native and Hybrid Mobile Developer</small><br/>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <p class="md-headline text-success">Website</p>
-                            <small class="md-subhead">
-                              <a href="#/home">http://jaspardzc.github.io/Blog/#/home</a>
-                            </small>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <p class="md-headline text-success">Contact Info：</p>
-                            <small class="md-subhead text-color-lightgray">Mobile: (480)238-5679</small><br/>
-                            <small class="md-subhead text-color-lightgray">Email: kevinzengdev@gmail.com</small>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <p class="md-headline text-success">Linkedin</p>
-                            <small class="md-subhead">
-                              <a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">https://www.linkedin.com/in/kevin-zeng-38584a118</a>
-                            </small>
-                          </div>
-                          
-                          <div class="col-md-12 col-sm-12 col-xs-12">
-                            <br/><br/>
-                          </div>
-
-                          <div class="col-md-12 col-sm-12 col-xs-12">
-                            <span>
-                              <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
-                            </span>
-                            <span>
-                              <span class="md-title">Highlighted Personal Projects: </span>
-                            </span>
-                            <br/><br/>
-                          </div>
-
-                          <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div id="myCarousel" class="col-md-12 col-sm-12 col-xs-12 carousel slide border-default" data-ride="carousel" data-interval="false">
-                              <!-- Indicators -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                                <li data-target="#myCarousel" data-slide-to="3"></li>
-                              </ol>
-
-                              <div class="carousel-inner" role="listbox">
-                                <div class="item" ng-class="{active:isActive($index)}" ng-repeat="project in overview.projects">
-                                   <div class="md-whiteframe-4dp">
-                                      <div class="panel-heading text-center">
-                                          <strong class="font20">{{project.title}}</strong>
-                                      </div>
-                                      <div class="panel-body">
-                                          <p><strong>{{project.objective}}</strong></p>
-                                          <p class="text-info" ng-repeat="detail in project.details"><strong>{{detail.description}}</strong><br/></p>
-                                          <p><strong class="text-warning">Environment: </strong><strong class="text-success">{{project.environment}}</strong></p>
-                                          <p class="pull-right text-info"><strong><em>Maintained: {{project.caption.email}}</em></strong></p>
-                                          <p class="pull-right"><em>{{project.caption.timespan}},&emsp;</em></p>
-                                      </div>
-                                  </div>
-                                  <div class="carousel-caption">
-                                    <h3><a href="{{project.links.github}}" target="_blank"><strong>Github Link</strong></a></h3>
-                                    <p><a href="{{project.links.demo}}" target="_blank"><strong>Demo Link</strong></a></p>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- Left and right controls -->
-                              <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev" 
-                                 style="height:96%;margin-left:1%">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next" 
-                                 style="height:96%;margin-right:1%">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </div>
-                          </div>
-
-                          <div class="col-md-12 col-sm-12 col-xs-12">
-                            <p><strong>Kevin Zeng is very passionate and has great vision for his work. His focus keeps everything moving smoothly, he makes sure all the deadlines are met, and makes sure that whatever project he is working on meets the highest standards. Wish him a very successful future.</strong></p>
-                            <p class="pull-right text-color-lightgray"> - Mohammad Hossain Software Test Engineer at TriZetto Corp,Phoenix AZ</p>
-                            <br/><br/><br/><br/>
-                            <blockquote class="blockquote-reverse bg-info">
-                              <p><strong class="font20">Senior Software Engineer</strong>
-                                 <span>Trizetto Corporation</span>
-                                 <small>November 2015 - Present | Phoenix, Arizona Area</small>
-                              </p>
-                            </blockquote>
-                          </div>
-                        </div>
-                    </md-content>
-                  </div>
-                </div>
-                <!-- End of Row -->
-                <hr/>
-                <div class="row">
-                </div>
-                        <!-- End of Row  -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="jumbotron col-md-12 shadow1">
-                            <p class="text-center">Developer who is addicted to Agile Environment and Open Source Community</p>
-                            <p class="col-md-6 col-md-offset-3">
-                                <a class="btn btn-primary btn-lg col-md-4" role="button"
-                                   href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">Linkedin
-                                   <span class="glyphicon glyphicon-user"></span></a>
-                                <a class="btn btn-default btn-lg col-md-4" role="button"
-                                   href="https://github.com/jaspardzc" target="_blank">Github
-                                   <span class="glyphicon glyphicon-heart"></span></a>
-                                <a class="btn btn-primary btn-lg col-md-4" role="button" style="background:#CF4438"
-                                   href="" target="_blank">Google+
-                                   <span class="glyphicon glyphicon-cloud"></span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                    <!-- End of Row  -->
+  <div style="margin-top:40px;">
+      <div class="div_opacity_animation" ng-class="{div_fade_in: loading}">
+          <!-- Row -->
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <strong class="text-primary font16 pull-left">{{app_name}} Time : {{today}}</strong>
             </div>
-             <!-- End of Page Inner  -->
-        </div>
-         <!-- End of Page Wrapper  -->
-    </div>
-     <!-- End of Wrapper -->
+          </div>
+          <!-- ./Row -->
+          <hr/>                           
+          <!-- Row -->
+          <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+                  <div class="col-md-12 col-sm-12 col-xs-12 shadow1">
+                    <br/>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <span>
+                        <i class="glyphicon glyphicon-user" style="font-size:20px;"></i>
+                      </span>
+                      <span>
+                        <span class="md-title">Kevin Zeng</span>
+                      </span>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <span>
+                        <p class="md-headline">{{overview.summary.title}}</p>
+                        <span class="md-subhead">Full Stack Software Developer</span><br/>
+                        <span class="md-subhead"><em>{{overview.summary.footer}}</em></span><br/>
+                      </span>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <p><strong ng-repeat="description in overview.summary.description">{{description}}<br/><br/></strong></p>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <img ng-src="{{imagePath}}" 
+                           class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3 img-circle img-responsive"
+                           alt="Washed Out">
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <br/><hr/><br/>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <md-button class="btn-success pull-right" 
+                                 ui-sref="contact">Contact Me</md-button>
+                      <md-button class="btn-primary pull-right">
+                        <document-directive 
+                          color="white" 
+                          margin-left="0px;"
+                          document-name="GET RESUME"></document-directive>
+                      </md-button>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <!-- Social Links Here -->
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-md-7 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12 shadow1">
+                  <br/>
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span>
+                      <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
+                    </span>
+                    <span>
+                      <span class="md-title">Basic Information: </span>
+                    </span>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <p class="md-headline text-success">Available For：</p>
+                    <small class="md-subhead text-color-lightgray">Full Stack Software Enginner</small><br/>
+                    <small class="md-subhead text-color-lightgray">Front End Software Enginner</small><br/>
+                    <small class="md-subhead text-color-lightgray">Back End JEE Software Enginner</small><br/>
+                    <small class="md-subhead text-color-lightgray">Native and Hybrid Mobile Developer</small><br/>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <p class="md-headline text-success">Website</p>
+                    <small class="md-subhead">
+                      <a href="#/home">http://jaspardzc.github.io/Blog/#/home</a>
+                    </small>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <p class="md-headline text-success">Contact Info：</p>
+                    <small class="md-subhead text-color-lightgray">Mobile: (480)238-5679</small><br/>
+                    <small class="md-subhead text-color-lightgray">Email: kevinzengdev@gmail.com</small>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <p class="md-headline text-success">Linkedin</p>
+                    <small class="md-subhead">
+                      <a href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">https://www.linkedin.com/in/kevin-zeng-38584a118</a>
+                    </small>
+                  </div>
+                  
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <br/><br/>
+                  </div>
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span>
+                      <i class="glyphicon glyphicon-th-large" style="font-size:20px;"></i>
+                    </span>
+                    <span>
+                      <span class="md-title">Highlighted Personal Projects: </span>
+                    </span>
+                    <br/><br/>
+                  </div>
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="myCarousel" 
+                         class="col-md-12 col-sm-12 col-xs-12 carousel slide border-default" 
+                         data-ride="carousel" 
+                         data-interval="false"
+                         style="">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                      </ol>
+
+                      <div class="carousel-inner" role="listbox">
+                        <div class="item" ng-class="{active:isActive($index)}" ng-repeat="project in overview.projects">
+                           <div class="md-whiteframe-4dp">
+                              <div class="panel-heading text-center">
+                                  <strong class="font20">{{project.title}}</strong>
+                              </div>
+                              <div class="panel-body">
+                                  <p><strong>{{project.objective}}</strong></p>
+                                  <p class="text-info" ng-repeat="detail in project.details"><strong>{{detail.description}}</strong><br/></p>
+                                  <p><strong class="text-warning">Environment: </strong><strong class="text-success">{{project.environment}}</strong></p>
+                                </div>
+                          </div>
+                          <div class="carousel-caption">
+                            <h3><a href="{{project.links.github}}" target="_blank"><strong>Github Link</strong></a></h3>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Left and right controls -->
+<!--                       <a class="left carousel-control" data-target="#myCarousel" role="button" 
+   data-slide="prev" 
+   style="height:96%;margin-left:1%;background-image:none;color:black;">
+  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" data-target="#myCarousel" role="button" 
+   data-slide="next" 
+   style="height:96%;margin-right:1%;background-image:none;color:black;">
+  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a> -->
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <br/><hr/>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+          <!-- ./Row -->
+          <hr/>
+          <!-- Row -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="jumbotron shadow1">
+                  <p class="text-center">Developer who is addicted to Agile Environment and Open Source Community</p>
+                  <p class="text-center"> 
+                    <a class="btn btn-primary btn-lg" role="button"
+                       href="https://www.linkedin.com/in/kevin-zeng-38584a118" target="_blank">Linkedin
+                       <span class="glyphicon glyphicon-user"></span></a>
+                    <a class="btn btn-default btn-lg" role="button"
+                       href="https://github.com/jaspardzc" target="_blank">Github
+                       <span class="glyphicon glyphicon-heart"></span></a>
+                    <a class="btn btn-primary btn-lg" role="button" style="background:#CF4438"
+                       href="" target="_blank">Google+
+                       <span class="glyphicon glyphicon-cloud"></span></a>
+                  </p>
+              </div>
+            </div>
+          </div>
+          <!-- ./Row  -->
+      </div>
+  </div>
 </div>

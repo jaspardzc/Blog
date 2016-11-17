@@ -1,27 +1,39 @@
+<div class="fluid-container col-md-12">
+    <!-- Page Content  -->
+    <div style="margin-top:80px;" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+		<md-content>
+			<md-tabs md-dynamic-height md-dynamic-width md-border-bottom>
+				<md-tab label="Admin Signin">
+					<md-content class="md-padding">
+						<form class="form-signin" autocomplete="off" name="adminForm">
+							<label for="inputEmail" class="sr-only">Email address</label>
+							<input id="inputEmail" ng-model="admin.email" class="form-control" placeholder="Email address" autocomplete="off" required autofocus>
+							<label for="inputPassword" class="sr-only">Password</label>
+							<input type="password" id="inputPassword" ng-model="admin.password" class="form-control" placeholder="Password" autocomplete="off" required>
+							<div class="checkbox">
+							<label>
+							<input type="checkbox" value="remember-me" ng-model="admin.rememberMe"> Remember me
+							</label>
+							</div>
+							<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signinAsAdmin(admin)">Sign In</button>
+							<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signinAsGuest()">Not Admin? Signin as Guest</button>
+						</form>
+					</md-content>
+				</md-tab>
 
-
-<div class="fluid-container col-md-12 col-sm-12 col-xs-12">
-	<div id="wrapper">
-	    <!-- Page Content  -->
-	    <div style="margin-top:80px;" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
-	        <div id="page-inner">
-
-		      <form class="form-signin" autocomplete="off">
-		        <h2 class="form-signin-heading">Admin Sign In</h2>
-		        <label for="inputEmail" class="sr-only">Email address</label>
-		        <input id="inputEmail" ng-model="admin.email" class="form-control" placeholder="Email address" autocomplete="off" required autofocus>
-		        <label for="inputPassword" class="sr-only">Password</label>
-		        <input type="password" id="inputPassword" ng-model="admin.password" class="form-control" placeholder="Password" autocomplete="off" required>
-		        <div class="checkbox">
-		          <label>
-		            <input type="checkbox" value="remember-me" ng-model="admin.rememberMe"> Remember me
-		          </label>
-		        </div>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signinAsAdmin(admin)">Sign In</button>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signinAsGuest()">Not Admin? Signin as Guest</button>
-		      </form>
-			</div>
-		</div>
+<!-- 				<md-tab label="Guest Signin">
+	<md-content class="md-padding">
+	    <div name="guestForm" class="col-md-12 col-sm-12 col-xs-12">
+			<fb:login-button scope="public_profile,email" 
+				onlogin="checkLoginState();"
+				size="xlarge"
+				auto_logout_link="true">
+				Facebook Signin
+			</fb:login-button>
+	    </div>
+	</md-content>
+</md-tab> -->
+			</md-tabs>
+		</md-content>
 	</div>
-
 </div>
