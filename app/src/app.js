@@ -20,6 +20,22 @@
     Object.assign(config, window.__config);
   } 
 
+  // register third party javascript library as angular module
+  angular.module('googlePlatformApi', [])
+    .factory('gapi', function($window) {
+      if ($window.gapi) {
+        $window._thirdparty = $window._thirdparty || {};
+        $window._thirdparty.gapi = $window.gapi;
+        try {
+          delete $window.gapi;
+        } catch (e) {
+          $window.gapi = undefined;
+        }
+      }
+      var gapi = $window._thirdparty.gapi;
+      return gapi;
+    });
+
   // define AngularJS application
   app = angular.module('Blog', [
       'ngAnimate',
@@ -31,7 +47,8 @@
       'ngAria',
       'ngMaterial',
       'ngMessages',
-      'ui.router'
+      'ui.router',
+      'oauth'
   ]);
 
   // register environment in AngularJS as constants
